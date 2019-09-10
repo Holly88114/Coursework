@@ -31,11 +31,11 @@ public class ControllerClasses {
             }
         }
 
-        public static void updateStudents(int id, String name, int email) {
+        public static void updateClasses(int id, String name, int teacherID) {
             try {
-                PreparedStatement ps = Main.db.prepareStatement("UPDATE Students SET Name = ?, Email = ?, WHERE StudentId = ?");
+                PreparedStatement ps = Main.db.prepareStatement("UPDATE Classes SET Name = ?, Email = ?, WHERE StudentId = ?");
                 ps.setString(1, name);
-                ps.setInt(2, email);
+                ps.setInt(2, teacherID);
                 ps.setInt(3, id);
                 ps.execute();
             } catch (Exception exception) {

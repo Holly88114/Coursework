@@ -7,13 +7,13 @@ import java.sql.DriverManager;
 public class Main {
     public static void main(String[] args) {
         openDatabase("Database.db");
+        System.out.println("Stuff");
     }
-
 
 
     public static Connection db = null;
     private static void openDatabase(String dbFile) {
-        try {
+            try {
             Class.forName("org.sqlite.JDBC");
             SQLiteConfig config = new SQLiteConfig();
             config.enforceForeignKeys(true);

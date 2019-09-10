@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Database.db">
-  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.9">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
     </root>
@@ -11,66 +11,252 @@
     <collation id="3" parent="1" name="BINARY"/>
     <collation id="4" parent="1" name="NOCASE"/>
     <collation id="5" parent="1" name="RTRIM"/>
-    <table id="6" parent="2" name="MathsQuestions"/>
-    <table id="7" parent="2" name="sqlite_master">
+    <table id="6" parent="2" name="Classes"/>
+    <table id="7" parent="2" name="IncorrectQuestions"/>
+    <table id="8" parent="2" name="Questions"/>
+    <table id="9" parent="2" name="StudentClasses"/>
+    <table id="10" parent="2" name="Students"/>
+    <table id="11" parent="2" name="Subjects"/>
+    <table id="12" parent="2" name="Teachers"/>
+    <table id="13" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="8" parent="2" name="sqlite_sequence">
+    <table id="14" parent="2" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <column id="9" parent="6" name="QuestionID">
+    <column id="15" parent="6" name="ClassID">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="10" parent="6" name="Questions">
+    <column id="16" parent="6" name="ClassName">
       <Position>2</Position>
       <DataType>STRING|0s</DataType>
     </column>
-    <column id="11" parent="6" name="TimesCorrect">
+    <column id="17" parent="6" name="TeacherID">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="18" parent="6">
+      <ColNames>ClassID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="19" parent="6">
+      <ColNames>TeacherID</ColNames>
+      <RefTableName>Teachers</RefTableName>
+      <RefColNames>TeacherID</RefColNames>
+    </foreign-key>
+    <column id="20" parent="7" name="IncorrectID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="7" name="Content">
+      <Position>2</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="7" name="StudentID">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="7" name="Answer">
+      <Position>4</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="24" parent="7">
+      <ColNames>IncorrectID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="25" parent="8" name="QuestionID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="26" parent="8" name="Content">
+      <Position>2</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="8" name="TimesCorrect">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="12" parent="6" name="TimesIncorrect">
+    <column id="28" parent="8" name="TimesIncorrect">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="13" parent="6" name="Difficulty">
+    <column id="29" parent="8" name="SubjectID">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <key id="14" parent="6">
+    <column id="30" parent="8" name="Answer">
+      <Position>6</Position>
+      <DataType>STRING|0s</DataType>
+    </column>
+    <key id="31" parent="8">
       <ColNames>QuestionID</ColNames>
       <Primary>1</Primary>
     </key>
-    <check id="15" parent="6">
-      <Predicate>Difficulty &lt;= 5</Predicate>
+    <check id="32" parent="8">
+      <Predicate>TimesCorrect &gt;= 0 AND TimesIncorrect &gt;= 0</Predicate>
     </check>
-    <column id="16" parent="7" name="type">
+    <column id="33" parent="9" name="StudentClassID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="34" parent="9" name="StudentID">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="35" parent="9" name="ClassID">
+      <Position>3</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="36" parent="9">
+      <ColNames>StudentClassID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="37" parent="9">
+      <ColNames>StudentID</ColNames>
+      <RefTableName>Students</RefTableName>
+      <RefColNames>StudentID</RefColNames>
+    </foreign-key>
+    <foreign-key id="38" parent="9">
+      <ColNames>ClassID</ColNames>
+      <RefTableName>Classes</RefTableName>
+      <RefColNames>ClassID</RefColNames>
+    </foreign-key>
+    <column id="39" parent="10" name="StudentID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="40" parent="10" name="Name">
+      <Position>2</Position>
+      <DataType>STRING|0s</DataType>
+    </column>
+    <column id="41" parent="10" name="Email">
+      <Position>3</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="10" name="Password">
+      <Position>4</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="10" name="Score">
+      <Position>5</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="44" parent="10" name="sqlite_autoindex_Students_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Email</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="45" parent="10">
+      <ColNames>StudentID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="46" parent="10">
+      <ColNames>Email</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_Students_1</UnderlyingIndexName>
+    </key>
+    <column id="47" parent="11" name="SubjectID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="11" name="SubjectName">
+      <Position>2</Position>
+      <DataType>STRING|0s</DataType>
+    </column>
+    <column id="49" parent="11" name="AccessType">
+      <Position>3</Position>
+      <DataType>BOOLEAN|0s</DataType>
+    </column>
+    <key id="50" parent="11">
+      <ColNames>SubjectID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="51" parent="12" name="TeacherID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="52" parent="12" name="Username">
+      <Position>2</Position>
+      <DataType>STRING|0s</DataType>
+    </column>
+    <column id="53" parent="12" name="Email">
+      <Position>3</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="12" name="Password">
+      <Position>4</Position>
+      <DataType>STRING|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="55" parent="12" name="sqlite_autoindex_Teachers_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Username</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="56" parent="12" name="sqlite_autoindex_Teachers_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>Email</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="57" parent="12">
+      <ColNames>TeacherID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="58" parent="12">
+      <ColNames>Username</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_Teachers_1</UnderlyingIndexName>
+    </key>
+    <key id="59" parent="12">
+      <ColNames>Email</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_Teachers_2</UnderlyingIndexName>
+    </key>
+    <column id="60" parent="13" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="17" parent="7" name="name">
+    <column id="61" parent="13" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="18" parent="7" name="tbl_name">
+    <column id="62" parent="13" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="19" parent="7" name="rootpage">
+    <column id="63" parent="13" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="20" parent="7" name="sql">
+    <column id="64" parent="13" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="21" parent="8" name="name">
+    <column id="65" parent="14" name="name">
       <Position>1</Position>
     </column>
-    <column id="22" parent="8" name="seq">
+    <column id="66" parent="14" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

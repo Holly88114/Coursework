@@ -12,6 +12,7 @@ public class ControllerStudents {
 
             ps.execute();
         } catch (Exception exception) {
+
             System.out.println("Database error: " + exception.getMessage());
         }
     }
