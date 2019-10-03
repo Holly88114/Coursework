@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="did a bunch of work - all the controller stuff">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8ca476ba-1183-4cc3-ada0-3013410733b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8ca476ba-1183-4cc3-ada0-3013410733b1.xml" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="fixed some sql syntax">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerClasses.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerStudents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerClasses.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerClasses.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerQuestions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerQuestions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerStudents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerStudents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerSubjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerSubjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerTeachers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/ControllerTeachers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +42,15 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\holly\.m2\repository" />
+        <option name="userSettingsFile" value="C:\Users\holly\.m2\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -163,6 +171,11 @@
       <workItem from="1567864024111" duration="632000" />
       <workItem from="1567931506488" duration="2057000" />
       <workItem from="1567940649010" duration="8859000" />
+      <workItem from="1568142800733" duration="87000" />
+      <workItem from="1569667813327" duration="34000" />
+      <workItem from="1569667867486" duration="8290000" />
+      <workItem from="1570027426555" duration="45000" />
+      <workItem from="1570027504622" duration="4282000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -171,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567669053478</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed some sql syntax">
+      <created>1568142850682</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568142850682</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +212,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="did a bunch of work - all the controller stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="did a bunch of work - all the controller stuff" />
+    <MESSAGE value="fixed some sql syntax" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some sql syntax" />
   </component>
 </project>

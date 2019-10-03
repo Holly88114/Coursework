@@ -1,5 +1,10 @@
+package Controllers;
+import Server.Main;
+
+import javax.ws.rs.Path;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 
 public class ControllerClasses {
         public static void insertClass(String name, int teacherId) {
