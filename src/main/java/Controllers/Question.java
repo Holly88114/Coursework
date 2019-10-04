@@ -23,8 +23,12 @@ public class Question {
                 ps.setString(1, content);
                 ps.setString(2, answer);
                 ps.execute();
+
+                return "{\"status\": \"OK\"}";
             } catch (Exception exception) {
                 System.out.println("Database error: " + exception.getMessage());
+                return "{\"error\": \"Unable to create new item, please see server console for more info.\"}";
+                // returns this statement to the user
             }
         }
 
