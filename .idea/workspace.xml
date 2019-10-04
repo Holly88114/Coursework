@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Fixed?">
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerClasses.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerQuestions.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerStudents.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSubjects.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerTeachers.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/Question.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/Student.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Database.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,7 +72,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -212,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570185944861</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed?">
+      <created>1570186458962</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1570186458962</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed?">
+      <created>1570186593410</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1570186593410</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
