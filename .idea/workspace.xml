@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Fixed?">
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerClasses.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerQuestions.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerStudents.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSubjects.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerTeachers.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/Question.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Controllers/Student.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Database.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerClasses.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerClasses.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerQuestions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerQuestions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerStudents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerStudents.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerSubjects.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerSubjects.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/ControllerTeachers.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/ControllerTeachers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,6 +57,7 @@
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -70,9 +74,9 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -94,8 +98,7 @@
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Main" />
-      <module name="Coursework" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <module name="NewCoursework" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Server.*" />
@@ -152,8 +155,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Maven.Coursework" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Maven.Coursework" />
     </list>
     <recent_temporary>
       <list>
@@ -199,6 +202,7 @@
       <workItem from="1569667867486" duration="8290000" />
       <workItem from="1570027426555" duration="45000" />
       <workItem from="1570027504622" duration="4282000" />
+      <workItem from="1570265295729" duration="1151000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
