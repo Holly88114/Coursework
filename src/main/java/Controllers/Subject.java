@@ -8,28 +8,23 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Teacher {
-
+public class Subject {
     @POST
     @Path("new")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String insertTeacher(@FormDataParam("name") String name, @FormDataParam("email") String email, @FormDataParam("password") String password) {
+    public String insertSubject(@FormDataParam("name") String name, @FormDataParam("accessType") Boolean accessType, @FormDataParam("studentID") Integer studentID) {
         try {
-            if (name == null || email == null || password == null) {
+            if (name == null || accessType == null || studentID == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            System.out.println("teacher/new name=" + name);
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Teachers (Name, Email, Password) VALUES (?, ?, ?)");
-            if (name.equals("") || email.equals("") || password.equals("")) {
-                System.out.println("One or more of the parameters are empty. Please resend the request.");
-            } else {
-                ps.setString(1, name);
-                ps.setString(2, email);
-                ps.setString(3, password);
-                ps.execute();
+            System.out.println("subject/new name=" + name);
+            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType, StudentID) VALUES (?, ?, ?)");
+            ps.setString(1, name);
+            ps.setBoolean(2, accessType);
+            ps.setInt(3, studentID);
 
-            }
+            ps.execute();
             return "{\"status\": \"OK\"}";
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
@@ -40,21 +35,21 @@ public class Teacher {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public String listTeachers() {
-        System.out.println("teacher/list");
+    public String listSubjects() {
+        System.out.println("subject/list");
         JSONArray list = new JSONArray();
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT TeacherId, Name, Email FROM Teachers");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectID, SubjectName, AccessType FROM Subjects");
             ResultSet results = ps.executeQuery();
             while (results.next()) {
                 JSONObject item = new JSONObject();
                 item.put("id", results.getInt(1));
                 item.put("name", results.getString(2));
-                item.put("email", results.getString(3));
+                item.put("quantity", results.getBoolean(3));
                 list.add(item);
+
             }
             return list.toString();
-
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
             return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
@@ -65,20 +60,20 @@ public class Teacher {
     @Path("update")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateTeachers(@FormDataParam("id") Integer id, @FormDataParam("name") String name, @FormDataParam("email") String email) {
+    public String updateSubjects(@FormDataParam("id") Integer id, @FormDataParam("name") String name, @FormDataParam("accessType") Boolean accessType) {
         try {
-            if (id == null || name == null || email == null) {
+            if (id == null || name == null || accessType == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            System.out.println("teacher/update id=" + id);
+            System.out.println("subject/update id=" + id);
+            PreparedStatement ps = Main.db.prepareStatement("UPDATE Subjects SET SubjectName = ?, AccessType = ? WHERE SubjectId = ?");
 
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Teachers SET Name = ?, Email = ? WHERE TeacherID = ?");
             ps.setString(1, name);
-            ps.setString(2, email);
+            ps.setBoolean(2, accessType);
             ps.setInt(3, id);
             ps.execute();
-            return "{\"status\": \"OK\"}";
 
+            return "{\"status\": \"OK\"}";
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
             return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
@@ -89,14 +84,14 @@ public class Teacher {
     @Path("delete")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteTeacher(@FormDataParam("email") String email) {
+    public String deleteSubject(@FormDataParam("id") Integer id) {
         try {
-            if (email == null) {
+            if (id == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            System.out.println("teacher/delete email=" + email);
-            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Teachers WHERE Email = ?");
-            ps.setString(1, email);
+            System.out.println("subject/delete id=" + id);
+            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Subjects WHERE SubjectID = ?");
+            ps.setInt(1, id);
             ps.execute();
             return "{\"status\": \"OK\"}";
         } catch (Exception exception) {
@@ -104,5 +99,4 @@ public class Teacher {
             return "{\"error\": \"Unable to delete item, please see server console for more info.\"}";
         }
     }
-
 }
