@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Database.db" uuid="61b5031f-6ac4-4c8c-8af8-6e24bcdda008">
+    <data-source source="LOCAL" name="Database.db" uuid="8ca476ba-1183-4cc3-ada0-3013410733b1">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/resources/Database.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\holly\OneDrive\Documents\Coursework-master\resources\Database.db</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="Database" uuid="a2b985e2-42c0-44ed-877b-0ef585a30f73">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\88114\IdeaProjects\Coursework\resources\Database.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
