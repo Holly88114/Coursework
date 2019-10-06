@@ -1,16 +1,13 @@
-package Controllers;
-
-import Server.Main;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ControllerQuestions {
-    public static void insertQuestion(String Content, String subject) {
+    public static void insertQuestion(String content, String answer, int subjectID) {
         try {
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Questions (Content, Subject) VALUES (?, ?)");
-            ps.setString(1, Content);
-            ps.setString(2, subject);
+            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Questions (Content, Answer, SubjectID) VALUES (?, ?, ?)");
+            ps.setString(1, content);
+            ps.setString(2, answer);
+            ps.setInt(3, subjectID);
             ps.execute();
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
@@ -40,7 +37,7 @@ public class ControllerQuestions {
 
     public static void updateQuestions(int id, String content, String answer) {
         try {
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Questions SET Content = ?, Answer = ?, WHERE QuestionId = ?");
+            PreparedStatement ps = Main.db.prepareStatement("UPDATE Questions SET Content = ?, Answer = ? WHERE QuestionId = ?");
             ps.setString(1, content);
             ps.setString(2, answer);
             ps.setInt(3, id);
@@ -51,10 +48,10 @@ public class ControllerQuestions {
         }
     }
 
-    public static void deleteQuestion(String content) {
+    public static void deleteQuestion(int id) {
         try {
-            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Questions WHERE Content = ?");
-            ps.setString(1, content);
+            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Questions WHERE QuestionID = ?");
+            ps.setInt(1, id);
             ps.execute();
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());

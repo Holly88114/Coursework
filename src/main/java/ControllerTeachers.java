@@ -1,6 +1,3 @@
-package Controllers;
-import Server.Main;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -9,11 +6,17 @@ public class ControllerTeachers {
         public static void insertTeacher(String name, String email, String password) {
             try {
                 PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Teachers (Name, Email, Password) VALUES (?, ?, ?)");
-                ps.setString(1, name);
-                ps.setString(2, email);
-                ps.setString(3, password);
-
-                ps.execute();
+                // if statement to ensure the parameters have values
+                if (name.equals("") || email.equals("") || password.equals("")) {
+                    System.out.println("One or more of the parameters are empty. Please resend the request.");
+                    // prints an error for the user so they know why the query failed
+                } else {
+                    // if none are missing the statement can continue as usual
+                    ps.setString(1, name);
+                    ps.setString(2, email);
+                    ps.setString(3, password);
+                    ps.execute();
+                }
             } catch (Exception exception) {
                 System.out.println("Database error: " + exception.getMessage());
             }
@@ -36,11 +39,11 @@ public class ControllerTeachers {
             }
         }
 
-        public static void updateTeachers(int id, String name, int email) {
+        public static void updateTeachers(int id, String name, String email) {
             try {
-                PreparedStatement ps = Main.db.prepareStatement("UPDATE Teachers SET Name = ?, Email = ?, WHERE StudentId = ?");
+                PreparedStatement ps = Main.db.prepareStatement("UPDATE Teachers SET Name = ?, Email = ? WHERE TeacherID = ?");
                 ps.setString(1, name);
-                ps.setInt(2, email);
+                ps.setString(2, email);
                 ps.setInt(3, id);
                 ps.execute();
             } catch (Exception exception) {

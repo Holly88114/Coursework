@@ -1,16 +1,15 @@
-package Controllers;
-
-import Server.Main;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ControllerSubjects {
-    public static void insertSubject(String name, Boolean accessType) {
+    // insert a new subject with a name and a Boolean access type where True is public and False is private
+    public static void insertSubject(String name, Boolean accessType, int studentID) {
         try {
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType) VALUES (?, ?)");
+            System.out.println(accessType);
+            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType, StudentID) VALUES (?, ?, ?)");
             ps.setString(1, name);
             ps.setBoolean(2, accessType);
+            ps.setInt(3, studentID);
 
             ps.execute();
         } catch (Exception exception) {
@@ -18,7 +17,7 @@ public class ControllerSubjects {
         }
     }
 
-    public static void listStudents() {
+    public static void listSubjects() {
         try {
             PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectID, SubjectName, AccessType FROM Subjects");
             ResultSet results = ps.executeQuery();
@@ -37,11 +36,15 @@ public class ControllerSubjects {
 
     public static void updateSubjects(int id, String name, boolean accessType) {
         try {
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Subjects SET SubjectName = ?, AccessType = ?, WHERE SubjectId = ?");
-            ps.setString(1, name);
-            ps.setBoolean(2, accessType);
-            ps.setInt(3, id);
-            ps.execute();
+            PreparedStatement ps = Main.db.prepareStatement("UPDATE Subjects SET SubjectName = ?, AccessType = ? WHERE SubjectId = ?");
+            // if statement to ensure the parameters have values
+
+                ps.setString(1, name);
+                ps.setBoolean(2, accessType);
+                ps.setInt(3, id);
+                ps.execute();
+
+
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
         }
