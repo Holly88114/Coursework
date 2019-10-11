@@ -29,6 +29,7 @@ public class Main {
             server.start();
             System.out.println("Server successfully started");
             server.join();
+
         } catch (Exception e) {
 
             e.printStackTrace();
@@ -43,6 +44,7 @@ public class Main {
             SQLiteConfig config = new SQLiteConfig();
             config.enforceForeignKeys(true);
             db = DriverManager.getConnection("jdbc:sqlite:resources/" + dbFile, config.toProperties());
+                System.out.println("Successfully connected to the database");
         } catch (Exception exception) {
             System.out.println("Database connection error: " + exception.getMessage());
         }

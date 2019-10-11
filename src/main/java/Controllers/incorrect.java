@@ -8,7 +8,8 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class IncorrectQuestion {
+@Path("incorrect/")
+public class incorrect {
 
     @POST
     @Path("new")

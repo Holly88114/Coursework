@@ -1,5 +1,5 @@
 package Controllers;
-import Server.Main;
+import       Server.Main;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -8,7 +8,8 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Enrollment {
+@Path("enrollment/")
+public class enrollment {
 
     @POST
     @Path("new")

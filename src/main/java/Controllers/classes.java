@@ -8,7 +8,8 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Classes {
+@Path("class/")
+public class classes {
 
     @POST
     @Path("new")
