@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="API start 7/7 rewritten">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/classes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/IncorrectQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/incorrect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/teacher.java" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Only 5 seem to push">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/student.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +85,9 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="U:\Computer Science\Coursework\.idea" />
     </key>
@@ -214,7 +213,7 @@
       <workItem from="1570027504622" duration="4282000" />
       <workItem from="1570265295729" duration="1151000" />
       <workItem from="1570379299859" duration="6714000" />
-      <workItem from="1570963228494" duration="300000" />
+      <workItem from="1570963228494" duration="778000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -265,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570386898108</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Only 5 seem to push">
+      <created>1570963654765</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1570963654765</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +296,7 @@
     <MESSAGE value="Fixed?" />
     <MESSAGE value="API start 2/7 done" />
     <MESSAGE value="API start 7/7 rewritten" />
-    <option name="LAST_COMMIT_MESSAGE" value="API start 7/7 rewritten" />
+    <MESSAGE value="Only 5 seem to push" />
+    <option name="LAST_COMMIT_MESSAGE" value="Only 5 seem to push" />
   </component>
 </project>
