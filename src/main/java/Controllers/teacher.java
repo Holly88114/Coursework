@@ -8,7 +8,8 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Teacher {
+@Path("teacher/")
+public class teacher {
 
     @POST
     @Path("new")

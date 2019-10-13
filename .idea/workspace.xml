@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="API start 2/7 done">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/IncorrectQuestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="API start 7/7 rewritten">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/classes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/enrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/IncorrectQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/incorrect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/teacher.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +213,8 @@
       <workItem from="1570027426555" duration="45000" />
       <workItem from="1570027504622" duration="4282000" />
       <workItem from="1570265295729" duration="1151000" />
-      <workItem from="1570379299859" duration="5430000" />
+      <workItem from="1570379299859" duration="6714000" />
+      <workItem from="1570963228494" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -260,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570381249684</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="API start 7/7 rewritten">
+      <created>1570386898108</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1570386898108</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +289,7 @@
     <MESSAGE value="fixed some sql syntax" />
     <MESSAGE value="Fixed?" />
     <MESSAGE value="API start 2/7 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="API start 2/7 done" />
+    <MESSAGE value="API start 7/7 rewritten" />
+    <option name="LAST_COMMIT_MESSAGE" value="API start 7/7 rewritten" />
   </component>
 </project>

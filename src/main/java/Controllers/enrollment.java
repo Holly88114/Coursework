@@ -8,21 +8,22 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class IncorrectQuestion {
+@Path("enrollment/")
+public class enrollment {
 
     @POST
     @Path("new")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String  insertInQu(@FormDataParam("questionID") Integer questionID, @FormDataParam("studentID") Integer studentID) {
+    public String insertEnroll(@FormDataParam("studentID") Integer studentID, @FormDataParam("classID") Integer classID) {
             try {
-                if (questionID == null || studentID == null) {
+                if (studentID == null || classID == null) {
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
                 }
-                System.out.println("incorrectQus/new id=" + questionID);
-                PreparedStatement ps = Main.db.prepareStatement("INSERT INTO IncorrectQuestions (questionID, studentID) VALUES (?, ?)");
-                ps.setInt(1, questionID);
-                ps.setInt(2, studentID);
+                System.out.println("thing/new id=" + studentID);
+                PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Enrollment (StudentID, ClassID) VALUES (?, ?)");
+                ps.setInt(1, studentID);
+                ps.setInt(2, classID);
 
                 ps.execute();
                 return "{\"status\": \"OK\"}";
@@ -32,27 +33,23 @@ public class IncorrectQuestion {
             }
         }
 
-    @GET
-    @Path("list")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String listInQus() {
-        System.out.println("incorrectQus/list");
-        JSONArray list = new JSONArray();
+        // lists the students and which class they are enrolled in
+        @GET
+        @Path("list")
+        @Produces(MediaType.APPLICATION_JSON)
+        public String listEnrollment() {
+            System.out.println("enroll/list");
+            JSONArray list = new JSONArray();
             try {
-                PreparedStatement ps = Main.db.prepareStatement("SELECT IncorrectID, Score FROM IncorrectQuestions");
-                PreparedStatement ps1 = Main.db.prepareStatement("SELECT Name FROM Students INNER JOIN IncorrectQuestions ON Students.StudentID = IncorrectQuestions.StudentID");
-                PreparedStatement ps2 = Main.db.prepareStatement("SELECT Content FROM Questions INNER JOIN IncorrectQuestions ON Questions.QuestionID = IncorrectQuestions.QuestionID");
-
-                ResultSet results = ps.executeQuery();
+                PreparedStatement ps1 = Main.db.prepareStatement("SELECT Name FROM Students INNER JOIN Enrollment ON Students.StudentID = Enrollment.StudentID");
+                PreparedStatement ps2 = Main.db.prepareStatement("SELECT ClassName FROM Classes INNER JOIN Enrollment ON Classes.ClassID = Enrollment.ClassID");
                 ResultSet results1 = ps1.executeQuery();
                 ResultSet results2 = ps2.executeQuery();
 
-                while (results.next() && results1.next() && results2.next()) {
+                while (results1.next() && results2.next()) {
                     JSONObject item = new JSONObject();
-                    item.put("id", results.getInt(1));
-                    item.put("score", results.getInt(2));
-                    item.put("student", results1.getString(1));
-                    item.put("question", results2.getString(1));
+                    item.put("student", results1.getInt(1));
+                    item.put("className", results2.getString(2));
                     list.add(item);
                 }
                 return list.toString();
@@ -66,15 +63,16 @@ public class IncorrectQuestion {
     @Path("update")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateInQu(@FormDataParam("score") Integer score, @FormDataParam("id") Integer id) {
+    public String updateEnrollment(@FormDataParam("studentID") Integer studentID, @FormDataParam("classID") Integer classID, @FormDataParam("enrollID") Integer enrollID) {
             try {
-                if (score == null || id == null) {
+                if (studentID == null || classID == null || enrollID == null) {
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
                 }
-                System.out.println("incorrectQus/update id=" + id);
-                PreparedStatement ps = Main.db.prepareStatement("UPDATE IncorrectQuestions SET Score = ? WHERE IncorrectID = ?");
-                ps.setInt(1, score);
-                ps.setInt(2, id);
+                System.out.println("enroll/update id=" + enrollID);
+                PreparedStatement ps = Main.db.prepareStatement("UPDATE Enrollment SET StudentID = ?, ClassID = ? WHERE EnrollID = ?");
+                ps.setInt(1, studentID);
+                ps.setInt(2, classID);
+                ps.setInt(3, enrollID);
                 ps.execute();
                 return "{\"status\": \"OK\"}";
             } catch (Exception exception) {
@@ -87,22 +85,24 @@ public class IncorrectQuestion {
     @Path("delete")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteInQu(@FormDataParam("id") Integer id) {
+    public String deleteEnrollment(@FormDataParam("studentID") Integer studentID, @FormDataParam("classID") Integer classID) {
             try {
-                if (id == null) {
+                if (studentID == null || classID == null) {
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
                 }
-                System.out.println("incorrectQu/delete id=" + id);
-                PreparedStatement ps = Main.db.prepareStatement("DELETE FROM IncorrectQuestions WHERE IncorrectID = ?");
-                ps.setInt(1, id);
-                ps.execute();
+                System.out.println("enroll/delete id=" + studentID);
 
+                PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Enrollment WHERE StudentID = ? AND ClassID = ?");
+                ps.setInt(1, studentID);
+                ps.setInt(2, classID);
+                ps.execute();
                 return "{\"status\": \"OK\"}";
             } catch (Exception exception) {
                 System.out.println("Database error: " + exception.getMessage());
                 return "{\"error\": \"Unable to delete item, please see server console for more info.\"}";
             }
         }
+
 
 
 }

@@ -8,7 +8,8 @@ import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Subject {
+@Path("subject/")
+public class subject {
     @POST
     @Path("new")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
