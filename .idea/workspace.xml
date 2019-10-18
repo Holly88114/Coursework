@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Only 5 seem to push">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/student.java" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Two extra ones">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
@@ -110,7 +114,7 @@
       <module name="NewCoursework" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Server.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -213,7 +217,12 @@
       <workItem from="1570027504622" duration="4282000" />
       <workItem from="1570265295729" duration="1151000" />
       <workItem from="1570379299859" duration="6714000" />
-      <workItem from="1570963228494" duration="778000" />
+      <workItem from="1570963228494" duration="1452000" />
+      <workItem from="1570972236626" duration="1981000" />
+      <workItem from="1571236469670" duration="3221000" />
+      <workItem from="1571240436760" duration="675000" />
+      <workItem from="1571325226953" duration="1800000" />
+      <workItem from="1571407864775" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -271,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570963654765</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Two extra ones">
+      <created>1570964029045</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1570964029045</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +313,7 @@
     <MESSAGE value="API start 2/7 done" />
     <MESSAGE value="API start 7/7 rewritten" />
     <MESSAGE value="Only 5 seem to push" />
-    <option name="LAST_COMMIT_MESSAGE" value="Only 5 seem to push" />
+    <MESSAGE value="Two extra ones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Two extra ones" />
   </component>
 </project>

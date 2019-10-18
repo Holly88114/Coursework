@@ -7,11 +7,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 @Path("student/")
 public class student {
-
 // importing the libraries
-
         @POST
         // the type of request (get or post)
         @Path("add")
@@ -80,7 +79,7 @@ public class student {
         @Produces(MediaType.APPLICATION_JSON)
         public String updateStudents(@FormDataParam("name") String name, @FormDataParam("password") String password, @FormDataParam("email") String email) {
             try {
-                if (name == null || email == null || email == password) {
+                if (name == null || email == null || password == null) {
                     // checks all the data is present
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
                 }
@@ -125,5 +124,35 @@ public class student {
                 // returns this statement to the user
             }
         }
+
+        @POST
+        @Path("login")
+        @Consumes(MediaType.MULTIPART_FORM_DATA)
+        @Produces(MediaType.APPLICATION_JSON)
+        public String loginStudent(@FormDataParam("email") String email, @FormDataParam("password") String password) {
+            try {
+                if (email == null || password == null) {
+                    // checks the email and password are present
+                    throw new Exception("One or more form data parameters are missing in the HTTP request.");
+                }
+                PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID, Email, Password FROM Students");
+                ResultSet results = ps.executeQuery();
+                while (results.next())  {
+                    if (results.getString(2).equals(email) && results.getString(3).equals(password)) {
+                        Main.UserID = results.getInt(1);
+                        System.out.println(Main.UserID);
+                        return"{\"status\": \"OK\"}";
+                    }
+                }
+                return "{\"error\": \"Incorrect information entered.\"}";
+                // no errors returns the OK
+            } catch (Exception exception) {
+                System.out.println("Database error: " + exception.getMessage());
+                // prints the database error to the console
+                return "{\"error\": \"Unable to login, please see server console for more info.\"}";
+                // returns this statement to the user
+            }
+        }
+
     }
 
