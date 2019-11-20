@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Two extra ones">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/enrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/incorrect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/incorrect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +34,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -161,7 +190,22 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@26f51f02" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@26f51f02" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@56dba048" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@26f51f02" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6033a7f7" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -202,7 +246,13 @@
       <workItem from="1571236469670" duration="3221000" />
       <workItem from="1571240436760" duration="675000" />
       <workItem from="1571325226953" duration="1800000" />
-      <workItem from="1571407864775" duration="648000" />
+      <workItem from="1571407864775" duration="1295000" />
+      <workItem from="1572000016084" duration="1945000" />
+      <workItem from="1572437175643" duration="1750000" />
+      <workItem from="1572694825356" duration="1746000" />
+      <workItem from="1572773728029" duration="2311000" />
+      <workItem from="1573834465891" duration="1323000" />
+      <workItem from="1574267239624" duration="2384000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -288,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571411274855</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Two extra ones">
+      <created>1571411518105</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571411518105</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

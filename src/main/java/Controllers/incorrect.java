@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 public class incorrect {
 
     @POST
-    @Path("new")
+    @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     public String  insertInQu(@FormDataParam("questionID") Integer questionID, @FormDataParam("studentID") Integer studentID) {
@@ -20,7 +20,7 @@ public class incorrect {
                 if (questionID == null || studentID == null) {
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
                 }
-                System.out.println("incorrectQus/new id=" + questionID);
+                System.out.println("incorrectQus/add id=" + questionID);
                 PreparedStatement ps = Main.db.prepareStatement("INSERT INTO IncorrectQuestions (questionID, studentID) VALUES (?, ?)");
                 ps.setInt(1, questionID);
                 ps.setInt(2, studentID);

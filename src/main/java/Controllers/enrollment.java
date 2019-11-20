@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 public class enrollment {
 
     @POST
-    @Path("new")
+    @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     public String insertEnroll(@FormDataParam("studentID") Integer studentID, @FormDataParam("classID") Integer classID) {
@@ -41,15 +41,15 @@ public class enrollment {
             System.out.println("enroll/list");
             JSONArray list = new JSONArray();
             try {
-                PreparedStatement ps1 = Main.db.prepareStatement("SELECT Name FROM Students INNER JOIN Enrollment ON Students.StudentID = Enrollment.StudentID");
-                PreparedStatement ps2 = Main.db.prepareStatement("SELECT ClassName FROM Classes INNER JOIN Enrollment ON Classes.ClassID = Enrollment.ClassID");
+                PreparedStatement ps1 = Main.db.prepareStatement("SELECT Students.Name FROM Students INNER JOIN Enrollment ON Students.StudentID = Enrollment.StudentID");
+                PreparedStatement ps2 = Main.db.prepareStatement("SELECT Classes.ClassName FROM Classes INNER JOIN Enrollment ON Classes.ClassID = Enrollment.ClassID");
                 ResultSet results1 = ps1.executeQuery();
                 ResultSet results2 = ps2.executeQuery();
 
                 while (results1.next() && results2.next()) {
                     JSONObject item = new JSONObject();
-                    item.put("student", results1.getInt(1));
-                    item.put("className", results2.getString(2));
+                    item.put("student", results1.getString(1));
+                    item.put("className", results2.getString(1));
                     list.add(item);
                 }
                 return list.toString();

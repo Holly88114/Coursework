@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 public class teacher {
 
     @POST
-    @Path("new")
+    @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     public String insertTeacher(@FormDataParam("name") String name, @FormDataParam("email") String email, @FormDataParam("password") String password) {
@@ -66,17 +66,17 @@ public class teacher {
     @Path("update")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String updateTeachers(@FormDataParam("id") Integer id, @FormDataParam("name") String name, @FormDataParam("email") String email) {
+    public String updateTeachers(@FormDataParam("name") String name, @FormDataParam("email") String email, @FormDataParam("password") String password) {
         try {
-            if (id == null || name == null || email == null) {
+            if (password == null || name == null || email == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            System.out.println("teacher/update id=" + id);
+            System.out.println("teacher/update id=" + name);
 
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Teachers SET Name = ?, Email = ? WHERE TeacherID = ?");
+            PreparedStatement ps = Main.db.prepareStatement("UPDATE Teachers SET Name = ?, Password = ? WHERE Email = ?");
             ps.setString(1, name);
-            ps.setString(2, email);
-            ps.setInt(3, id);
+            ps.setString(2, password);
+            ps.setString(3, email);
             ps.execute();
             return "{\"status\": \"OK\"}";
 
@@ -103,6 +103,35 @@ public class teacher {
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
             return "{\"error\": \"Unable to delete item, please see server console for more info.\"}";
+        }
+    }
+
+    @POST
+    @Path("login")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String loginStudent(@FormDataParam("email") String email, @FormDataParam("password") String password) {
+        try {
+            if (email == null || password == null) {
+                // checks the email and password are present
+                throw new Exception("One or more form data parameters are missing in the HTTP request.");
+            }
+            PreparedStatement ps = Main.db.prepareStatement("SELECT TeacherID, Email, Password FROM Teachers");
+            ResultSet results = ps.executeQuery();
+            while (results.next())  {
+                if (results.getString(2).equals(email) && results.getString(3).equals(password)) {
+                    Main.UserID = results.getInt(1);
+                    System.out.println(Main.UserID);
+                    return"{\"status\": \"OK\"}";
+                }
+            }
+            return "{\"error\": \"Incorrect information entered.\"}";
+            // no errors returns the OK
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            // prints the database error to the console
+            return "{\"error\": \"Unable to login, please see server console for more info.\"}";
+            // returns this statement to the user
         }
     }
 

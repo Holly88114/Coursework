@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 @Path("subject/")
 public class subject {
     @POST
-    @Path("new")
+    @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     public String insertSubject(@FormDataParam("name") String name, @FormDataParam("accessType") Boolean accessType, @FormDataParam("studentID") Integer studentID) {
@@ -46,7 +46,7 @@ public class subject {
                 JSONObject item = new JSONObject();
                 item.put("id", results.getInt(1));
                 item.put("name", results.getString(2));
-                item.put("quantity", results.getBoolean(3));
+                item.put("access type", results.getBoolean(3));
                 list.add(item);
 
             }
