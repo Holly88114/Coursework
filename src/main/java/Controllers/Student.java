@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @Path("student/")
-public class student {
+public class Student {
 // importing the libraries
         @POST
         // the type of request (get or post)

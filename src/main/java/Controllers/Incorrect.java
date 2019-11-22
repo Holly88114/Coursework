@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @Path("incorrect/")
-public class incorrect {
+public class Incorrect {
 
     @POST
     @Path("add")

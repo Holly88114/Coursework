@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @Path("subject/")
-public class subject {
+public class Subject {
     @POST
     @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)

@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @Path("class/")
-public class classes {
+public class Classes {
 
     @POST
     @Path("new")

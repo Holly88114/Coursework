@@ -1,6 +1,5 @@
 package Controllers;
 import Server.Main;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,7 +10,7 @@ import java.sql.ResultSet;
 import java.util.Random;
 
 @Path("question/")
-public class question {
+public class Question {
 
     @POST
     @Path("add")
