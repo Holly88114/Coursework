@@ -1,33 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Two extra ones">
-      <change afterPath="$PROJECT_DIR$/resources/client/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Phase 3 Setup">
+      <change afterPath="$PROJECT_DIR$/resources/client/img/_101542074_gettyimages-956391468.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/img/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/incorrect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Incorrect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/classes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/question.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/subject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/NewCoursework.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +83,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client\img" />
       <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources" />
       <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client" />
       <recent name="U:\Computer Science\Coursework\.idea" />
@@ -241,7 +222,8 @@
       <workItem from="1572773728029" duration="2311000" />
       <workItem from="1573834465891" duration="1323000" />
       <workItem from="1574267239624" duration="2384000" />
-      <workItem from="1574420640996" duration="4185000" />
+      <workItem from="1574420640996" duration="4231000" />
+      <workItem from="1575024711559" duration="4701000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -334,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571411518105</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Phase 3 Setup">
+      <created>1574424886908</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1574424886908</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +350,7 @@
     <MESSAGE value="API start 7/7 rewritten" />
     <MESSAGE value="Only 5 seem to push" />
     <MESSAGE value="Two extra ones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Two extra ones" />
+    <MESSAGE value="Phase 3 Setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Phase 3 Setup" />
   </component>
 </project>
