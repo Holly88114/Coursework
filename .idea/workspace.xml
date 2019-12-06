@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Phase 3 Setup">
-      <change afterPath="$PROJECT_DIR$/resources/client/img/_101542074_gettyimages-956391468.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/img/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/js/js.cookie.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,8 +82,9 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client\img" />
+      <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client\js" />
       <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources" />
+      <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client\img" />
       <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client" />
       <recent name="U:\Computer Science\Coursework\.idea" />
     </key>
@@ -223,7 +223,8 @@
       <workItem from="1573834465891" duration="1323000" />
       <workItem from="1574267239624" duration="2384000" />
       <workItem from="1574420640996" duration="4231000" />
-      <workItem from="1575024711559" duration="4701000" />
+      <workItem from="1575024711559" duration="4925000" />
+      <workItem from="1575630211621" duration="4140000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -323,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574424886908</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Phase 3 Setup">
+      <created>1575029661854</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1575029661854</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

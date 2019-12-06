@@ -7,6 +7,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 @Path("student/")
 public class Student {
@@ -150,6 +151,34 @@ public class Student {
                 System.out.println("Database error: " + exception.getMessage());
                 // prints the database error to the console
                 return "{\"error\": \"Unable to login, please see server console for more info.\"}";
+                // returns this statement to the user
+            }
+        }
+
+        @POST
+        @Path("logout")
+        @Consumes(MediaType.MULTIPART_FORM_DATA)
+        @Produces(MediaType.APPLICATION_JSON)
+        public String logout(@CookieParam("token") String token) {
+            try {
+                System.out.println("user/logout");
+                PreparedStatement ps1 = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+                ps1.setString(1, token);
+                ResultSet logoutResults = ps1.executeQuery();
+                if (logoutResults.next()) {
+                    int id = logoutResults.getInt(1);
+                    PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Students SET Token = NULL WHERE StudentID = ?");
+                    ps2.setInt(1, id);
+                    ps2.executeUpdate();
+                    return "{\"status\":\"OK\"}";
+                } else {
+                    return "{\"error\": \"Invalid token!\"}";
+                }
+
+            } catch (Exception exception) {
+                System.out.println("Database error during /user/logout: " + exception.getMessage());
+                // prints the database error to the console
+                return "{\"error\": \"Server side error\"}";
                 // returns this statement to the user
             }
         }
