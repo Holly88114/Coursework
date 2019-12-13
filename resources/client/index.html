@@ -10,32 +10,27 @@
 </head>
 <body onload="pageLoad()">
 
-    <div id="container1">
-        <h1>Welcome to the Website!</h1>
-        <h3>Login and Learn!</h3>
-        <input type="checkbox" name="User1" value="Teacher">Teacher<br>
-        <input type="checkbox" name="User2" value="Student">Student<br>
+<div id="container1">
+    <h1>Welcome to the Website!</h1>
+    <h3>Login and Learn!</h3>
+    <form id="loginForm">
+        <input type="checkbox" name="teacherUser" value="Teacher">Teacher<br>
+        <input type="checkbox" name="studentUser" value="Student">Student<br>
         <br>
+        <div class="container2" >
+            <label><b>Username: </b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
 
-            <div class="container2">
-                <label><b>Username: </b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-
-                <label><b>Password: </b></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
-
-
-            </div>
+            <label><b>Password: </b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+        </div>
         <br>
-
-            <div class="container2">
-                <button type="submit">Login</button>
-                <button type="button" class="cancelbtn">Cancel</button>
-
-            </div>
+        <div class="container2">
+            <button type="submit" name="loginButton">Login</button>
+            <button type="button" class="cancelButton">Cancel</button>
+        </div>
         <br>
-        </form>
-    </div>
-
+    </form>
+</div>
 </body>
 </html>
