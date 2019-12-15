@@ -3,8 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Student</title>
+    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <script src="/client/js/js.cookie.js"></script>
+    <script src="/client/js/student.js"></script>
 </head>
-<body>
+<body onload="pageLoad()">
+
+    <span class="sidenav" onclick="openNav()">&#9776; Menu</span>
+    <div id="mySidenav" class="sidenav">
+        <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+        <a href="/client/subject.html">Subject 1</a>
+        <a href="/client/subject.html">Subject 2</a>
+        <a href="/client/subject.html">Subject 3</a>
+        <a href="/client/subject.html">Subject 4</a>
+    </div>
+
+    <div class="content">
+        <h1 id="welcome"></h1>
+        <p class="studentContent">This is where the table will go </p><p class="studentContent"> This is where the leaderboard will go</p>
+    </div>
+    <br>
 
 </body>
 </html>

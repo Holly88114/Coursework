@@ -7,11 +7,12 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.UUID;
+// importing the libraries
 
 @Path("student/")
 public class Student {
-// importing the libraries
+
         @POST
         // the type of request (get or post)
         @Path("add")
@@ -74,6 +75,37 @@ public class Student {
             }
         }
 
+    @POST
+    @Path("select")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String selectStudent(@CookieParam("token") String token) {
+        System.out.println("students/select");
+        JSONArray list = new JSONArray();
+        // creates the array for the data
+
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("SELECT StudentId, Name, Email FROM Students WHERE Token = ?");
+            ps.setString(1, token);
+            ResultSet results = ps.executeQuery();
+            while (results.next()) {
+                JSONObject item = new JSONObject();
+                item.put("id", results.getInt(1));
+                item.put("name", results.getString(2));
+                item.put("email", results.getString(3));
+                list.add(item);
+                // adds the content from the database into the JSON object
+            }
+            return list.toString();
+            // returns the list in a String format
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            // prints the database error to the console
+            return "{\"error\": \"Unable to show user details, please see server console for more info.\"}";
+            // returns this statement to the user
+        }
+    }
+
         @POST
         @Path("update")
         @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -132,6 +164,7 @@ public class Student {
         @Produces(MediaType.APPLICATION_JSON)
         public String loginStudent(@FormDataParam("email") String email, @FormDataParam("password") String password) {
             try {
+                System.out.println("student/login");
                 if (email == null || password == null) {
                     // checks the email and password are present
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
@@ -140,9 +173,18 @@ public class Student {
                 ResultSet results = ps.executeQuery();
                 while (results.next())  {
                     if (results.getString(2).equals(email) && results.getString(3).equals(password)) {
-                        Main.UserID = results.getInt(1);
-                        System.out.println(Main.UserID);
-                        return"{\"status\": \"OK\"}";
+                        String token = UUID.randomUUID().toString();
+
+                        PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Students SET Token = ? WHERE Email = ?");
+                        ps2.setString(1, token);
+                        ps2.setString(2, email);
+                        ps2.executeUpdate();
+
+                        JSONObject userDetails = new JSONObject();
+                        userDetails.put("email", email);
+                        userDetails.put("token", token);
+                        return userDetails.toString();
+
                     }
                 }
                 return "{\"error\": \"Incorrect information entered.\"}";
@@ -183,5 +225,17 @@ public class Student {
             }
         }
 
+    public static boolean validToken(String token) {
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+            ps.setString(1, token);
+            ResultSet logoutResults = ps.executeQuery();
+            return logoutResults.next();
+        } catch (Exception exception) {
+            System.out.println("Database error during /user/logout: " + exception.getMessage());
+            return false;
+        }
     }
+
+}
 

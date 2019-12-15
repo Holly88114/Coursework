@@ -15,8 +15,11 @@ public class Classes {
     @Path("new")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String insertClass(@FormDataParam("name") String name, @FormDataParam("teacherID") Integer teacherId) {
+    public String insertClass(@FormDataParam("name") String name, @FormDataParam("teacherID") Integer teacherId, @CookieParam("token") String token) {
             try {
+                if (!Student.validToken(token) || !Teacher.validToken(token)) {
+                    return "{\"error\": \"You don't appear to be logged in.\"}";
+                }
                 if (name == null || teacherId == null) {
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
                 }

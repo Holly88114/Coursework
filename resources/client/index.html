@@ -10,23 +10,24 @@
 </head>
 <body onload="pageLoad()">
 
-<div id="container1">
+<div class="content">
     <h1>Welcome to the Website!</h1>
     <h3>Login and Learn!</h3>
+
+    <input type="checkbox" name="teacherUser" value="Teacher" id="T" onclick="selectOnlyThis(this.id)">Teacher<br>
+    <input type="checkbox" name="studentUser" value="Student" id="S" onclick="selectOnlyThis(this.id)">Student<br>
+    <br>
     <form id="loginForm">
-        <input type="checkbox" name="teacherUser" value="Teacher">Teacher<br>
-        <input type="checkbox" name="studentUser" value="Student">Student<br>
-        <br>
-        <div class="container2" >
-            <label><b>Username: </b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+        <div class="container" >
+            <label><b>Email: </b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
             <label><b>Password: </b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
         </div>
-        <br>
-        <div class="container2">
-            <button type="submit" name="loginButton">Login</button>
+        <p>Create a new account <a href="/client/newUser.html" id="link">here</a></p>
+        <div class="container">
+            <button type="submit" id="loginButton">Login</button>
             <button type="button" class="cancelButton">Cancel</button>
         </div>
         <br>
