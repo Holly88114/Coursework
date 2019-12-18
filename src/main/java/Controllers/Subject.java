@@ -69,8 +69,7 @@ public class Subject {
                     return "{\"error\": \"You don't appear to be logged in.\"}";
                 }
                 System.out.println("subject/list/specific id=");
-                PreparedStatement ps = Main.db.prepareStatement("UPDATE Subjects SET SubjectName = ?, AccessType = ? WHERE SubjectId = ?");
-
+                PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectName FROM Subjects WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?)");
                 ps.setString(1, token);
                 return "{\"status\": \"OK\"}";
             } catch (Exception exception) {

@@ -1,11 +1,16 @@
 function pageLoad() {
+    document.getElementById("logoutButton").addEventListener("click", logout);
     getUsername();
+}
+
+function logout() {
+    window.location.href = "index.html/?logout"
 }
 
 function listSubjects() {
     let formData = new FormData;
     formData.append('token', document.cookie);
-    fetch("/subject/list", {method: 'post', body: formData}
+    fetch("/subject/list/specific", {method: 'post', body: formData}
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {

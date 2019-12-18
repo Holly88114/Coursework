@@ -72,3 +72,9 @@ span {
     display: inline;
 }
 
+.logoutButton {
+    top: 10px;
+    right: 80px;
+    position: absolute;
+    font-size: 25px;
+}

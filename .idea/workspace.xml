@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="quiz variable inputted">
-      <change afterPath="$PROJECT_DIR$/resources/client/class.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/js/class.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/js/newUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/js/student.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/newUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Phase 3 login kinda pt 2">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/student.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/classes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/question.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/subject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,12 +39,16 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Database" type="feb32156:DbDataSourceImpl" />
+        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Database" type="feb32156:DbDataSourceImpl" />
+        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
@@ -110,7 +100,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
