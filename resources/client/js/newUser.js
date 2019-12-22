@@ -5,6 +5,8 @@ function pageLoad() {
     document.getElementById("password").addEventListener("input", text);
     document.getElementById("repeatPassword").addEventListener("input", text);
 
+}
+
     function text() {
         if (document.getElementById("password").value !== document.getElementById("repeatPassword").value) {
             document.getElementById("match").style.visibility = "visible";
@@ -74,7 +76,7 @@ function pageLoad() {
     function cancel() {
         window.location.href = "/client/index.html";
     }
-}
+
 
 function selectOnlyThis(id) {
     if (id === "T") {

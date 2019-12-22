@@ -2,20 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Phase 3 login kinda pt 2">
+      <change afterPath="$PROJECT_DIR$/resources/client/js/newSubject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/newSubject.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/subject.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/newUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/newUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/student.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/student.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/classes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/question.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/subject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Database.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,18 +47,18 @@
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
+        <item name="Database" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
+        <item name="Database" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database [2]" type="feb32156:DbDataSourceImpl" />
       </path>
     </expand>
     <select />
@@ -71,12 +79,6 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="U:\.m2\repository" />
-        <option name="userSettingsFile" value="U:\.m2\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
@@ -87,6 +89,11 @@
   <component name="ProjectId" id="1PKGf26r6QdzJIhjB1k3gjMWZL1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -116,18 +123,6 @@
       <recent name="C:\Users\88114\IdeaProjects\NewCoursework\resources\client" />
       <recent name="U:\Computer Science\Coursework\.idea" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -199,13 +194,15 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -254,6 +251,9 @@
       <workItem from="1575024711559" duration="4925000" />
       <workItem from="1575630211621" duration="4222000" />
       <workItem from="1576234610637" duration="3806000" />
+      <workItem from="1577010670984" duration="34000" />
+      <workItem from="1577010907394" duration="83000" />
+      <workItem from="1577011151039" duration="6367000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -397,5 +397,47 @@
     <MESSAGE value="Phase 3 Setup" />
     <MESSAGE value="Phase 3 login kinda" />
     <option name="LAST_COMMIT_MESSAGE" value="Phase 3 login kinda" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="398" y="104" key="FileChooserDialogImpl" timestamp="1577011526681">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="398" y="104" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1577011526681" />
+    <state width="1237" height="103" key="GridCell.Tab.0.bottom" timestamp="1577015880035">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="103" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
+    <state width="1237" height="103" key="GridCell.Tab.0.center" timestamp="1577015880035">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="103" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
+    <state width="1237" height="103" key="GridCell.Tab.0.left" timestamp="1577015880035">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="103" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
+    <state width="1237" height="103" key="GridCell.Tab.0.right" timestamp="1577015880035">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="1237" height="103" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
+    <state x="121" y="0" key="SettingsEditor" timestamp="1577011546285">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1577011546285" />
+    <state x="348" y="174" key="com.intellij.ide.util.TipDialog" timestamp="1577011152453">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="348" y="174" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1577011152453" />
+    <state x="452" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577011556420">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="452" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.689@0.0.1280.689" timestamp="1577011556420" />
+    <state x="297" y="153" key="run.anything.popup" timestamp="1577013634370">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="297" y="153" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1577013634370" />
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1577011882957">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1577011882957" />
   </component>
 </project>

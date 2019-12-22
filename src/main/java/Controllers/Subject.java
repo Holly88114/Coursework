@@ -33,10 +33,8 @@ public class Subject {
         }
     }
 
-    @Path("list/")
-    public class lists {
         @GET
-        @Path("all")
+        @Path("listAll")
         @Produces(MediaType.APPLICATION_JSON)
         public String listSubjects() {
             System.out.println("subject/list");
@@ -60,7 +58,7 @@ public class Subject {
         }
 
         @POST
-        @Path("specific")
+        @Path("listSpecific")
         @Consumes(MediaType.MULTIPART_FORM_DATA)
         @Produces(MediaType.APPLICATION_JSON)
         public String listStudentSubjects(@CookieParam("token") String token) {
@@ -68,16 +66,25 @@ public class Subject {
                 if (!Student.validToken(token)) {
                     return "{\"error\": \"You don't appear to be logged in.\"}";
                 }
-                System.out.println("subject/list/specific id=");
-                PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectName FROM Subjects WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?)");
+                System.out.println("subject/listSpecific token= " + token);
+                JSONArray list = new JSONArray();
+                PreparedStatement ps = Main.db.prepareStatement("SELECT * FROM Subjects WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?)");
                 ps.setString(1, token);
-                return "{\"status\": \"OK\"}";
+                ResultSet results = ps.executeQuery();
+                while (results.next()) {
+                    JSONObject item = new JSONObject();
+                    item.put("id", results.getInt(1));
+                    item.put("name", results.getString(2));
+                    item.put("access type", results.getBoolean(3));
+                    list.add(item);
+
+                }
+                return list.toString();
             } catch (Exception exception) {
                 System.out.println("Database error: " + exception.getMessage());
                 return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
             }
         }
-    }
 
     @POST
     @Path("update")
