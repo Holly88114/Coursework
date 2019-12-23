@@ -14,18 +14,27 @@ public class Subject {
     @Path("add")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String insertSubject(@FormDataParam("name") String name, @FormDataParam("accessType") Boolean accessType, @FormDataParam("studentID") Integer studentID) {
+    public String insertSubject(@FormDataParam("name") String name, @FormDataParam("accessType") Boolean accessType, @CookieParam("token") String token) {
         try {
-            if (name == null || accessType == null || studentID == null) {
+            if (name == null || accessType == null || token == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
+            int subjectID;
+            PreparedStatement ps1 = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+            ps1.setString(1, token);
+            ResultSet results = ps1.executeQuery();
+            if (results.next()) {
+                subjectID = results.getInt(1);
+            } else {
+                return "{\"error\": \"Invalid token!\"}";
+            }
             System.out.println("subject/new name=" + name);
-            PreparedStatement ps = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType, StudentID) VALUES (?, ?, ?)");
-            ps.setString(1, name);
-            ps.setBoolean(2, accessType);
-            ps.setInt(3, studentID);
+            PreparedStatement ps2 = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType, StudentID) VALUES (?, ?, ?)");
+            ps2.setString(1, name);
+            ps2.setBoolean(2, accessType);
+            ps2.setInt(3, subjectID);
 
-            ps.execute();
+            ps2.execute();
             return "{\"status\": \"OK\"}";
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
@@ -48,7 +57,6 @@ public class Subject {
                     item.put("name", results.getString(2));
                     item.put("access type", results.getBoolean(3));
                     list.add(item);
-
                 }
                 return list.toString();
             } catch (Exception exception) {

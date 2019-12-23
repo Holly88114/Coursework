@@ -1,28 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Phase 3 login kinda pt 2">
-      <change afterPath="$PROJECT_DIR$/resources/client/js/newSubject.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/newSubject.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/client/subject.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Login complete, newUser, newSubject, student 1/2">
+      <change afterPath="$PROJECT_DIR$/resources/client/flashcard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/js/flashcard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/js/subject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/js/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/client/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/class.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/class.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/class.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/class.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/newSubject.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/newSubject.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/newUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/newUser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/newSubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/newSubject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/newUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/newUser.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/subject.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/subject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/classes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/enrollment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/incorrect.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/question.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/student.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/subject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/teacher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Database.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Server/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +77,8 @@
         <option value="package-info" />
         <option value="CSS File" />
         <option value="Class" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -99,6 +107,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowAnt.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="true" />
@@ -110,6 +119,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
@@ -253,7 +263,7 @@
       <workItem from="1576234610637" duration="3806000" />
       <workItem from="1577010670984" duration="34000" />
       <workItem from="1577010907394" duration="83000" />
-      <workItem from="1577011151039" duration="6367000" />
+      <workItem from="1577011151039" duration="56101000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -367,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575634424415</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Login complete, newUser, newSubject, student 1/2">
+      <created>1577020229136</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1577020229136</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,33 +413,58 @@
     <MESSAGE value="Two extra ones" />
     <MESSAGE value="Phase 3 Setup" />
     <MESSAGE value="Phase 3 login kinda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Phase 3 login kinda" />
+    <MESSAGE value="Login complete, newUser, newSubject, student 1/2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login complete, newUser, newSubject, student 1/2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="256" y="0" key="CommitChangelistDialog2" timestamp="1577020228322">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="256" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1577020228322" />
     <state x="398" y="104" key="FileChooserDialogImpl" timestamp="1577011526681">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="398" y="104" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1577011526681" />
-    <state width="1237" height="103" key="GridCell.Tab.0.bottom" timestamp="1577015880035">
+    <state width="1237" height="142" key="GridCell.Tab.0.bottom" timestamp="1577128482110">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="103" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
-    <state width="1237" height="103" key="GridCell.Tab.0.center" timestamp="1577015880035">
+    <state width="1237" height="142" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1577128482110" />
+    <state width="1237" height="142" key="GridCell.Tab.0.center" timestamp="1577128482110">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="103" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
-    <state width="1237" height="103" key="GridCell.Tab.0.left" timestamp="1577015880035">
+    <state width="1237" height="142" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1577128482110" />
+    <state width="1237" height="142" key="GridCell.Tab.0.left" timestamp="1577128482110">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="103" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
-    <state width="1237" height="103" key="GridCell.Tab.0.right" timestamp="1577015880035">
+    <state width="1237" height="142" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1577128482110" />
+    <state width="1237" height="142" key="GridCell.Tab.0.right" timestamp="1577128482110">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="103" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1577015880035" />
+    <state width="1237" height="142" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1577128482110" />
+    <state width="691" height="143" key="GridCell.Tab.1.bottom" timestamp="1577123803590">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="691" height="143" key="GridCell.Tab.1.bottom/0.0.1280.689@0.0.1280.689" timestamp="1577123803590" />
+    <state width="691" height="143" key="GridCell.Tab.1.center" timestamp="1577123803590">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="691" height="143" key="GridCell.Tab.1.center/0.0.1280.689@0.0.1280.689" timestamp="1577123803590" />
+    <state width="691" height="143" key="GridCell.Tab.1.left" timestamp="1577123803590">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="691" height="143" key="GridCell.Tab.1.left/0.0.1280.689@0.0.1280.689" timestamp="1577123803590" />
+    <state width="691" height="143" key="GridCell.Tab.1.right" timestamp="1577123803590">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state width="691" height="143" key="GridCell.Tab.1.right/0.0.1280.689@0.0.1280.689" timestamp="1577123803590" />
     <state x="121" y="0" key="SettingsEditor" timestamp="1577011546285">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1577011546285" />
+    <state x="233" y="82" key="Vcs.Push.Dialog.v2" timestamp="1577020231653">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1577020231653" />
     <state x="348" y="174" key="com.intellij.ide.util.TipDialog" timestamp="1577011152453">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -435,9 +477,9 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="297" y="153" key="run.anything.popup/0.0.1280.689@0.0.1280.689" timestamp="1577013634370" />
-    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1577011882957">
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup" timestamp="1577125858091">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1577011882957" />
+    <state x="303" y="10" width="672" height="678" key="search.everywhere.popup/0.0.1280.689@0.0.1280.689" timestamp="1577125858091" />
   </component>
 </project>

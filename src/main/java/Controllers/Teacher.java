@@ -134,14 +134,49 @@ public class Teacher {
             // returns this statement to the user
         }
     }
+
+    @POST
+    @Path("logout")
+    // path name
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    // takes in formData and produces a JSON response
+    public String logout(@CookieParam("token") String token) {
+        // only needs to take in the cookie parameter of the token
+        try {
+            System.out.println("teacher/logout");
+            PreparedStatement ps1 = Main.db.prepareStatement("SELECT TeacherID FROM Teachers WHERE Token = ?");
+            // gets the student that wants to logout
+            ps1.setString(1, token);
+            ResultSet logoutResults = ps1.executeQuery();
+            if (logoutResults.next()) {
+                int id = logoutResults.getInt(1);
+                PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Teachers SET Token = NULL WHERE TeacherID = ?");
+                // sets the token to null as the user is no longer logged in
+                ps2.setInt(1, id);
+                ps2.executeUpdate();
+                return "{\"status\":\"OK\"}";
+            } else {
+                return "{\"error\": \"Invalid token!\"}";
+                // if the token doesn't match any in the database an error is returned
+            }
+
+        } catch (Exception exception) {
+            System.out.println("Database error during /teacher/logout: " + exception.getMessage());
+            // prints the database error to the console
+            return "{\"error\": \"Server side error\"}";
+            // returns this statement to the user
+        }
+    }
+
     public static boolean validToken(String token) {
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT UserID FROM Users WHERE Token = ?");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT TeacherID FROM Teachers WHERE Token = ?");
             ps.setString(1, token);
             ResultSet logoutResults = ps.executeQuery();
             return logoutResults.next();
         } catch (Exception exception) {
-            System.out.println("Database error during /user/logout: " + exception.getMessage());
+            System.out.println("Database error during /teacher/logout: " + exception.getMessage());
             return false;
         }
     }

@@ -55,7 +55,7 @@ public class Student {
             JSONArray list = new JSONArray();
             // creates the array for the data
             try {
-                PreparedStatement ps = Main.db.prepareStatement("SELECT StudentId, Name, Email FROM Students");
+                PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID, Name, Email FROM Students");
                 ResultSet results = ps.executeQuery();
                 while (results.next()) {
                     JSONObject item = new JSONObject();
@@ -85,7 +85,7 @@ public class Student {
         // creates the array for the data
 
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT StudentId, Name, Email FROM Students WHERE Token = ?");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID, Name, Email FROM Students WHERE Token = ?");
             ps.setString(1, token);
             ResultSet results = ps.executeQuery();
             while (results.next()) {
@@ -160,22 +160,29 @@ public class Student {
 
         @POST
         @Path("login")
+        // path name
         @Consumes(MediaType.MULTIPART_FORM_DATA)
         @Produces(MediaType.APPLICATION_JSON)
+        // takes in formData and produces a JSON response
         public String loginStudent(@FormDataParam("email") String email, @FormDataParam("password") String password) {
             try {
                 System.out.println("student/login");
                 if (email == null || password == null) {
                     // checks the email and password are present
                     throw new Exception("One or more form data parameters are missing in the HTTP request.");
+                    // if either the email or password aren't present this error is returned
                 }
                 PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID, Email, Password FROM Students");
+                // a prepared statement to select the students from the Students table
                 ResultSet results = ps.executeQuery();
                 while (results.next())  {
+                    // while the next result isn't null
                     if (results.getString(2).equals(email) && results.getString(3).equals(password)) {
                         String token = UUID.randomUUID().toString();
+                        // if the email and the password match then a token is generated
 
                         PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Students SET Token = ? WHERE Email = ?");
+                        // a prepared statement to update the user's token
                         ps2.setString(1, token);
                         ps2.setString(2, email);
                         ps2.executeUpdate();
@@ -184,11 +191,11 @@ public class Student {
                         userDetails.put("email", email);
                         userDetails.put("token", token);
                         return userDetails.toString();
-
+                        // returns the email and the token of the student
                     }
                 }
                 return "{\"error\": \"Incorrect information entered.\"}";
-                // no errors returns the OK
+                // if the username and password don't match any in the system an error is returned
             } catch (Exception exception) {
                 System.out.println("Database error: " + exception.getMessage());
                 // prints the database error to the console
@@ -199,22 +206,28 @@ public class Student {
 
         @POST
         @Path("logout")
+        // path name
         @Consumes(MediaType.MULTIPART_FORM_DATA)
         @Produces(MediaType.APPLICATION_JSON)
+        // takes in formData and produces a JSON response
         public String logout(@CookieParam("token") String token) {
+            // only needs to take in the cookie parameter of the token
             try {
                 System.out.println("user/logout");
                 PreparedStatement ps1 = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+                // gets the student that wants to logout
                 ps1.setString(1, token);
                 ResultSet logoutResults = ps1.executeQuery();
                 if (logoutResults.next()) {
                     int id = logoutResults.getInt(1);
                     PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Students SET Token = NULL WHERE StudentID = ?");
+                    // sets the token to null as the user is no longer logged in
                     ps2.setInt(1, id);
                     ps2.executeUpdate();
                     return "{\"status\":\"OK\"}";
                 } else {
                     return "{\"error\": \"Invalid token!\"}";
+                    // if the token doesn't match any in the database an error is returned
                 }
 
             } catch (Exception exception) {
@@ -225,12 +238,45 @@ public class Student {
             }
         }
 
+    @POST
+    @Path("checkUser")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String checkUser(@CookieParam("token") String token) {
+        System.out.println("students/check");
+        JSONArray list = new JSONArray();
+        // creates the array for the data
+        try {
+            PreparedStatement ps1 = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+            ps1.setString(1, token);
+            ResultSet results1 = ps1.executeQuery();
+            if (results1.next()) {
+                return "{\"user\": \"student\"}";
+            } else {
+                PreparedStatement ps2 = Main.db.prepareStatement("SELECT TeacherID FROM Teachers WHERE Token = ?");
+                ps2.setString(1, token);
+                ResultSet results2 = ps2.executeQuery();
+                return "{\"user\": \"teacher\"}";
+            }
+
+            // returns the list in a String format
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            // prints the database error to the console
+            return "{\"error\": \"Unable to show user details, please see server console for more info.\"}";
+            // returns this statement to the user
+        }
+    }
+
+
     public static boolean validToken(String token) {
         try {
             PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+            // selects the id of the student that is logged in
             ps.setString(1, token);
             ResultSet logoutResults = ps.executeQuery();
             return logoutResults.next();
+            // returns the result of the query - the studentID
         } catch (Exception exception) {
             System.out.println("Database error during /user/logout: " + exception.getMessage());
             return false;

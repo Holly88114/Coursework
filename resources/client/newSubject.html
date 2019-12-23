@@ -10,14 +10,14 @@
 <div class="content">
     <h1>Create a New Subject</h1><br>
     <form id="newSubjectForm">
-        <label><b>Question: </b></label>
-        <input type="text" placeholder="New Question" name="content" id="content" required><br>
-
-        <label><b>Answer: </b></label>
-        <input type="text" placeholder="New Answer" name="answer" id="answer" required><br>
-    </form><br>
+        <label><b>Subject Name: </b></label>
+        <input type="text" placeholder="Subject Name" name="name" id="name" required><br>
+    </form>
+    <h3>Public?<br>(share your subject with others)</h3>
+    <input type="checkbox" name="accessType" id="public" ><br>
 
     <div class="container">
+        <br>
         <button type="submit" id="submit">Create!</button>
         <button type="button" id="cancelButton">Cancel</button>
     </div>

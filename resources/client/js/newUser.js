@@ -34,8 +34,6 @@ function pageLoad() {
                 if (responseData.hasOwnProperty('error')) {
                     alert(responseData.error);
                 } else {
-                    Cookies.set("email", responseData.email);
-                    Cookies.set("token", responseData.token);
                     window.location.href = "/client/index.html"
                 }
             });
@@ -46,9 +44,7 @@ function pageLoad() {
                 if (responseData.hasOwnProperty('error')) {
                     alert(responseData.error);
                 } else {
-                    Cookies.set("email", responseData.email);
-                    Cookies.set("token", responseData.token);
-                    window.location.href = "/client/student.html"
+                    window.location.href = "/client/index.html"
                 }
             });
         }
@@ -69,6 +65,12 @@ function pageLoad() {
         let email = document.getElementById("email").value;
         if (!email.includes("@")) {
             alert("Email is invalid");
+            window.location.href = "/client/newUser.html"
+        }
+        let student = document.getElementById("S").checked;
+        let teacher = document.getElementById("T").checked;
+        if (!student && !teacher) {
+            alert("Must select a user type");
             window.location.href = "/client/newUser.html"
         }
     }

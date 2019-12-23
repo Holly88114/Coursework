@@ -17,6 +17,12 @@ body {
     display: inline;
 }
 
+.importantButton {
+    display: inline;
+    position: absolute;
+    font-size: 25px;
+}
+
 .sideNav {
     height: 100%;
     width: 0;
@@ -74,7 +80,38 @@ span {
 
 .logoutButton {
     top: 10px;
-    right: 80px;
+    right: 10px;
     position: absolute;
     font-size: 25px;
+}
+#listDiv {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    table-layout: fixed;
+}
+.button {
+    font-size: 25px;
+}
+
+#smallContent {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+#next {
+    align-items: end;
+    display: inline;
+}
+#answer {
+    align-items: center;
+    display: inline;
+}
+
+#userAns {
+    visibility: hidden;
+}
+
+#smallButton {
+    visibility: hidden;
 }

@@ -35,56 +35,31 @@ public class Question {
         }
     }
 
-    @GET
+    @POST
     @Path("list")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String listQuestions(@FormDataParam("quiz") Boolean quiz) {
-        System.out.println("question/list");
+    public String listQuestions(@FormDataParam("id") Integer id) {
+        System.out.println("question/list id= " + id);
         JSONArray list = new JSONArray();
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT QuestionId, Content, Answer, TimesCorrect, TimesIncorrect, SubjectID FROM Questions");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT QuestionID, Content, Answer, TimesCorrect, TimesIncorrect FROM Questions WHERE SubjectID = ?");
+            ps.setInt(1, id);
             ResultSet results = ps.executeQuery();
             while (results.next()) {
                 JSONObject item = new JSONObject();
-                //item.put("id", results.getInt(1));
+                item.put("id", results.getInt(1));
                 item.put("content", results.getString(2));
                 item.put("answer", results.getString(3));
-                //item.put("TimesCorrect", results.getInt(4));
-                //item.put("TimesIncorrect", results.getInt(5));
-                //item.put("SubjectID", results.getInt(6));
+                item.put("timesCorrect", results.getInt(4));
+                item.put("timesIncorrect", results.getInt(5));
                 list.add(item);
-            }
-
-            if (quiz) {
-                return tenQuestions(list).toString();
             }
             return list.toString();
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
             return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
         }
-    }
-
-    public JSONArray tenQuestions(JSONArray list) {
-        Random random = new Random();
-        JSONArray newList = new JSONArray();
-        int[] array = new int[10];
-        boolean match = false;
-        int count = 0;
-        while (count != 10) {
-            int rand = random.nextInt(list.size());
-            for (int y = 0; y < 10; y++) {
-                if (rand == array[y]) {
-                    match = true;
-                }
-            }
-            if (match) {
-                newList.add(list.get(rand));
-                count += 1;
-            }
-        }
-        return newList;
     }
 
     @POST
@@ -98,9 +73,33 @@ public class Question {
             }
 
             System.out.println("question/update id=" + id);
-            PreparedStatement ps = Main.db.prepareStatement("UPDATE Questions SET Content = ?, Answer = ? WHERE QuestionId = ?");
+            PreparedStatement ps = Main.db.prepareStatement("UPDATE Questions SET Content = ?, Answer = ? WHERE QuestionID = ?");
             ps.setString(1, content);
             ps.setString(2, answer);
+            ps.setInt(3, id);
+
+            ps.execute();
+            return "{\"status\": \"OK\"}";
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
+        }
+    }
+
+    @POST
+    @Path("updateProgress")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String updateProgress(@FormDataParam("timesCorrect") Integer timesCorrect, @FormDataParam("timesIncorrect") Integer timesIncorrect, @FormDataParam("id") Integer id) {
+        try {
+            if (id == null || timesCorrect == null || timesIncorrect == null) {
+                throw new Exception("One or more form data parameters are missing in the HTTP request.");
+            }
+
+            System.out.println("question/update id=" + id);
+            PreparedStatement ps = Main.db.prepareStatement("UPDATE Questions SET TimesCorrect = ?, TimesIncorrect = ? WHERE QuestionID = ?");
+            ps.setInt(1, timesCorrect);
+            ps.setInt(2, timesIncorrect);
             ps.setInt(3, id);
 
             ps.execute();
@@ -121,10 +120,10 @@ public class Question {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
             System.out.println("question/delete id=" + id);
-            PreparedStatement ps1 = Main.db.prepareStatement("UPDATE Questions SET SubjectID=null WHERE QuestionID = ?");
+            //PreparedStatement ps1 = Main.db.prepareStatement("UPDATE Questions SET SubjectID=null WHERE QuestionID = ?");
             PreparedStatement ps2 = Main.db.prepareStatement("DELETE FROM Questions WHERE QuestionID = ?");
-            ps1.setInt(1, id);
-            ps1.execute();
+            //ps1.setInt(1, id);
+            //ps1.execute();
             ps2.setInt(1, id);
             ps2.execute();
 

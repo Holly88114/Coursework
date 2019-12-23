@@ -37,7 +37,7 @@ public class Classes {
         }
 
     @GET
-    @Path("list")
+    @Path("listAll")
     @Produces(MediaType.APPLICATION_JSON)
     public String listClasses() {
         System.out.println("class/list");
@@ -58,6 +58,58 @@ public class Classes {
                 return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
             }
         }
+
+    @POST
+    @Path("listSpecific")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listSpecificClasses(@CookieParam("token") String token) {
+        System.out.println("class/listSpecific");
+        JSONArray list = new JSONArray();
+        try {
+            PreparedStatement ps1 = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
+            ps1.setString(1, token);
+            ResultSet results1 = ps1.executeQuery();
+            int id = results1.getInt(1);
+            PreparedStatement ps2 = Main.db.prepareStatement("SELECT ClassID, ClassName FROM Classes WHERE ClassID = (SELECT Enrollment.ClassID FROM Enrollment WHERE StudentID = ?)");
+            ps2.setInt(1, id);
+            ResultSet results2 = ps2.executeQuery();
+            while (results2.next()) {
+                JSONObject item = new JSONObject();
+                item.put("id", results2.getInt(1));
+                item.put("name", results2.getString(2));
+                list.add(item);
+            }
+            return list.toString();
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
+        }
+    }
+
+    @POST
+    @Path("get")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getName(@FormDataParam("classID") Integer id) {
+        System.out.println("class/getName");
+        JSONArray list = new JSONArray();
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("SELECT ClassName FROM Classes WHERE ClassID = ?");
+            ps.setInt(1, id);
+            ResultSet results = ps.executeQuery();
+            while (results.next()) {
+                JSONObject item = new JSONObject();
+                item.put("name", results.getString(1));
+                list.add(item);
+            }
+            return list.toString();
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
+        }
+    }
+
 
     @POST
     @Path("update")

@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <title>Class</title>
     <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
-    <script src="/client/js/index.js"></script>
+    <script src="/client/js/class.js"></script>
+    <script src="/client/js/student.js"></script>
 </head>
-<body onload="pageLoad()">
-
-<button type="submit" class="editButton">Login</button>
-<button type="button" class="editButton">Cancel</button>
-
+<body onload="pageLoad1()">
+<span onclick="openNav()">&#9776; Menu</span>
+<div id="mySideNav" class="sideNav">
+    <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+</div>
+<button type="button" class="logoutButton" id="logoutButton">Logout</button>
+<div class="content">
+    <h1 id="title"></h1>
+    <div id="listDiv"></div>
+    <p class="sensitive"> This is for Teachers only</p>
+    <p class="sensitive"> This is for Teachers only</p>
+</div>
 </body>
 </html>

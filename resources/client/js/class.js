@@ -1,50 +1,74 @@
-function pageLoad() {
+let classID = window.location.toString().substring(window.location.toString().indexOf("=")+1, window.location.toString().indexOf("_"));
 
-    let fruitsHTML = '<table>' +
-        '<tr>' +
-        '<th>Id</th>' +
-        '<th>Name</th>' +
-        '<th>Image</th>' +
-        '<th>Colour</th>' +
-        '<th>Size</th>' +
-        '<th class="last">Options</th>' +
-        '</tr>';
+function pageLoad1() {
+    listSubjects();
+    getName();
+    getStudents();
+    userType();
+}
 
-    fetch('/fruit/list', {method: 'get'}
+function getName() {
+    let formData = new FormData;
+    formData.append('classID', classID);
+    fetch("/class/get", {method: 'post', body: formData}
     ).then(response => response.json()
-    ).then(fruits => {
-        for (let fruit of fruits) {
-
-            fruitsHTML += `<tr>` +
-                `<td>${fruit.id}</td>` +
-                `<td>${fruit.name}</td>` +
-                `<td><img src='/client/img/${fruit.image}' 
-                    alt='Picture of ${fruit.name}' height='100px'></td>` +
-                `<td><span class="fruitColour" 
-                    style="background-color:${fruit.colour};"></span></td>` +
-                `<td>${fruit.size}</td>` +
-                `<td class="last">` +
-                `<button class='editButton' data-id='${fruit.id}'>Edit</button>` +
-                `<button class='deleteButton' data-id='${fruit.id}'>Delete</button>` +
-                `</td>` +
-                `</tr>`;
-
-        }
-        fruitsHTML += '</table>';
-
-        document.getElementById("listDiv").innerHTML = fruitsHTML;
-
-        let editButtons = document.getElementsByClassName("editButton");
-        for (let button of editButtons) {
-            button.addEventListener("click", editFruit);
-        }
-
-        let deleteButtons = document.getElementsByClassName("deleteButton");
-        for (let button of deleteButtons) {
-            button.addEventListener("click", deleteFruit);
+    ).then(responseData => {
+        if (responseData.hasOwnProperty('error')) {
+            alert(responseData.error);
+        } else {
+            document.getElementById("title").innerHTML = "Welcome to " + responseData[0].name + "!";
         }
     });
-
-    document.getElementById("saveButton").addEventListener("click", saveEditFruit);
-    document.getElementById("cancelButton").addEventListener("click", cancelEditFruit);
 }
+
+function getStudents() {
+    let studentsHTML = '<table id="table">' +
+        '<tr>' +
+        '<th>Student Id</th>' +
+        '<th>Name</th>' +
+        '<th>Email</th>' +
+        '<th>Score</th>' +
+        '<th>Active?</th>' +
+        '</tr>';
+
+    let formData = new FormData;
+    formData.append('classID', classID);
+    fetch('/enrollment/list', {method: 'post', body: formData}
+    ).then(response => response.json()
+    ).then(classStudents => {
+        for (let x = 0; x < classStudents.length; x++) {
+            let student = classStudents[x];
+            studentsHTML += `<tr id="table">` +
+                `<td data-id='${student.studentID}'>${x+1}</td>` +
+                `<td>${student.studentName}</td>` +
+                `<td class="sensitive">${student.studentEmail}</td>` +
+                `<td>${student.score}</td>` +
+                `<td class="sensitive">${student.token}</td>` +
+                `</tr>`;
+        }
+        studentsHTML += '</table>';
+        document.getElementById("listDiv").innerHTML = studentsHTML;
+
+    });
+}
+function userType() {
+    let formData = new FormData;
+    formData.append("token", document.cookie);
+    fetch("/student/checkUser", {method: 'post', body: formData}
+    ).then(response => response.json()
+    ).then(data => {
+        console.log(data.user);
+        if (data.hasOwnProperty('error')) {
+            alert(data.error);
+        } else {
+            if (data.user !== "teacher") {
+                hideData();
+            }
+        }
+    });
+}
+function hideData() {
+    let doc = document.getElementById("table").getElementsByClassName("sensitive");
+    doc.style.visibility = "hidden";
+}
+

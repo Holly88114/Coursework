@@ -34,22 +34,29 @@ public class Enrollment {
         }
 
         // lists the students and which class they are enrolled in
-        @GET
+        @POST
         @Path("list")
+        @Consumes(MediaType.MULTIPART_FORM_DATA)
         @Produces(MediaType.APPLICATION_JSON)
-        public String listEnrollment() {
+        public String listEnrollment(@FormDataParam("classID") Integer classID) {
             System.out.println("enroll/list");
             JSONArray list = new JSONArray();
             try {
-                PreparedStatement ps1 = Main.db.prepareStatement("SELECT Students.Name FROM Students INNER JOIN Enrollment ON Students.StudentID = Enrollment.StudentID");
-                PreparedStatement ps2 = Main.db.prepareStatement("SELECT Classes.ClassName FROM Classes INNER JOIN Enrollment ON Classes.ClassID = Enrollment.ClassID");
-                ResultSet results1 = ps1.executeQuery();
-                ResultSet results2 = ps2.executeQuery();
+                PreparedStatement ps = Main.db.prepareStatement("SELECT Students.Name, Students.StudentID, Students.Email, Students.Score, Students.Token FROM Students INNER JOIN Enrollment ON Students.StudentID = Enrollment.StudentID WHERE ClassID = ?");
+                ps.setInt(1, classID);
 
-                while (results1.next() && results2.next()) {
+                ResultSet results = ps.executeQuery();
+                while (results.next()) {
                     JSONObject item = new JSONObject();
-                    item.put("student", results1.getString(1));
-                    item.put("className", results2.getString(1));
+                    item.put("studentName", results.getString(1));
+                    item.put("studentID", results.getInt(2));
+                    item.put("studentEmail", results.getString(3));
+                    item.put("score", results.getInt(4));
+                    if (results.getString(5) == null) {
+                        item.put("token", false);
+                    } else {
+                        item.put("token", true);
+                    }
                     list.add(item);
                 }
                 return list.toString();

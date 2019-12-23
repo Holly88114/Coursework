@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Subject</title>
+    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <script src="/client/js/subject.js"></script>
+    <script src="/client/js/student.js"></script>
 </head>
-<body>
-
+<body onload="pageLoad1()">
+<span onclick="openNav()">&#9776; Menu</span>
+<div id="mySideNav" class="sideNav">
+    <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+</div>
+<button type="button" class="logoutButton" id="logoutButton">Logout</button>
+<div class="content">
+    <h1 id="title"></h1>
+    <button type="button" class="button" id="flashcards" onclick="flashcard()">Flashcards</button>
+    <button type="button" class="button" id="test" onclick="test()">Test your knowledge</button>
+    <button type="button" class="button" id="quiz" onclick="flashcard()">Quiz Time!</button> <br>
+    <br>
+    <div id="listDiv"></div><br>
+    <button type="button" class="button" id="addQ">Add new Question</button>
+    <br><br>
+</div>
 </body>
 </html>

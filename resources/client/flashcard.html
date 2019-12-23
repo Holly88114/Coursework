@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcards</title>
+    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <script src="/client/js/flashcard.js"></script>
+    <script src="/client/js/student.js"></script>
+</head>
+<body onload="pageLoad1()">
+<span onclick="openNav()">&#9776; Menu</span>
+<div id="mySideNav" class="sideNav">
+    <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+</div>
+<button type="button" class="logoutButton" id="logoutButton">Logout</button>
+    <div class="content">
+        <h1>Flashcards</h1>
+        <div id="smallContent" class="content">
+            <h3 id="qaTitle">Click Next to start Flashcards!</h3>
+            <p id="card"></p>
+        </div>
+        <br>
+        <div>
+            <button type="button" class="button" id="answerButton">Question</button>
+            <button type="button" class="button" id="nextButton">Next</button> <br><br>
+
+        </div>
+    </div>
+</body>
+</html>
