@@ -42,57 +42,56 @@ public class Subject {
         }
     }
 
-        @GET
-        @Path("listAll")
-        @Produces(MediaType.APPLICATION_JSON)
-        public String listSubjects() {
-            System.out.println("subject/list");
+    @GET
+    @Path("listAll")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listSubjects() {
+        System.out.println("subject/list");
+        JSONArray list = new JSONArray();
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectID, SubjectName FROM Subjects WHERE AccessType = TRUE");
+            ResultSet results = ps.executeQuery();
+            while (results.next()) {
+                JSONObject item = new JSONObject();
+                item.put("id", results.getInt(1));
+                item.put("name", results.getString(2));
+                item.put("access type", results.getBoolean(3));
+                list.add(item);
+            }
+            return list.toString();
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
+        }
+    }
+
+    @POST
+    @Path("listSpecific")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listStudentSubjects(@CookieParam("token") String token) {
+        try {
+            if (!Student.validToken(token)) {
+                return "{\"error\": \"You don't appear to be logged in.\"}";
+            }
+            System.out.println("subject/listSpecific token= " + token);
             JSONArray list = new JSONArray();
-            try {
-                PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectID, SubjectName, AccessType FROM Subjects");
-                ResultSet results = ps.executeQuery();
-                while (results.next()) {
-                    JSONObject item = new JSONObject();
-                    item.put("id", results.getInt(1));
-                    item.put("name", results.getString(2));
-                    item.put("access type", results.getBoolean(3));
-                    list.add(item);
-                }
-                return list.toString();
-            } catch (Exception exception) {
-                System.out.println("Database error: " + exception.getMessage());
-                return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
+            PreparedStatement ps = Main.db.prepareStatement("SELECT * FROM Subjects WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?)");
+            ps.setString(1, token);
+            ResultSet results = ps.executeQuery();
+            while (results.next()) {
+                JSONObject item = new JSONObject();
+                item.put("id", results.getInt(1));
+                item.put("name", results.getString(2));
+                item.put("access type", results.getBoolean(3));
+                list.add(item);
             }
+            return list.toString();
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
         }
-
-        @POST
-        @Path("listSpecific")
-        @Consumes(MediaType.MULTIPART_FORM_DATA)
-        @Produces(MediaType.APPLICATION_JSON)
-        public String listStudentSubjects(@CookieParam("token") String token) {
-            try {
-                if (!Student.validToken(token)) {
-                    return "{\"error\": \"You don't appear to be logged in.\"}";
-                }
-                System.out.println("subject/listSpecific token= " + token);
-                JSONArray list = new JSONArray();
-                PreparedStatement ps = Main.db.prepareStatement("SELECT * FROM Subjects WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?)");
-                ps.setString(1, token);
-                ResultSet results = ps.executeQuery();
-                while (results.next()) {
-                    JSONObject item = new JSONObject();
-                    item.put("id", results.getInt(1));
-                    item.put("name", results.getString(2));
-                    item.put("access type", results.getBoolean(3));
-                    list.add(item);
-
-                }
-                return list.toString();
-            } catch (Exception exception) {
-                System.out.println("Database error: " + exception.getMessage());
-                return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
-            }
-        }
+    }
 
     @POST
     @Path("update")

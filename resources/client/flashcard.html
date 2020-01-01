@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Flashcards</title>
-    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/bodyStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/buttonStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/sideNav.css">
     <script src="/client/js/flashcard.js"></script>
     <script src="/client/js/student.js"></script>
 </head>
@@ -12,17 +14,17 @@
 <div id="mySideNav" class="sideNav">
     <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
 </div>
-<button type="button" class="logoutButton" id="logoutButton">Logout</button>
-    <div class="content">
+<button type="button" class="bigButton" id="logoutButton">Logout</button>
+    <div class="mainBody">
         <h1>Flashcards</h1>
-        <div id="smallContent" class="content">
+        <div id="smallContent" class="smallBody">
             <h3 id="qaTitle">Click Next to start Flashcards!</h3>
             <p id="card"></p>
         </div>
         <br>
         <div>
-            <button type="button" class="button" id="answerButton">Question</button>
-            <button type="button" class="button" id="nextButton">Next</button> <br><br>
+            <button type="button" class="bigButton" id="answerButton">Question</button>
+            <button type="button" class="bigButton" id="nextButton">Next</button> <br><br>
 
         </div>
     </div>

@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Student</title>
-    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/bodyStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/buttonStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/sideNav.css">
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
     <script src="/client/js/js.cookie.js"></script>
     <script src="/client/js/student.js"></script>
 </head>
-<body onload="pageLoad()">
+<body onload="pageLoadStudent()">
 
     <span onclick="openNav()">&#9776; Menu</span>
     <div id="mySideNav" class="sideNav">
         <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
     </div>
-    <button type="button" class="logoutButton" id="logoutButton">Logout</button>
+    <button type="button" class="bigButton" id="logoutButton">Logout</button>
 
-    <div class="content">
-        <h1 id="welcome"></h1>
-        <p class="studentContent">This is where the table will go </p><p class="studentContent"> This is where the leader board will go</p>
+    <div class="mainBody" id="mainBody">
+        <br>
+        <div class="smallBody">
+            <h1 id="welcome"></h1>
+        </div>
+        <br>
+
+
+            <br>
+            <div class="studentContent">
+                <div>
+                    <canvas id="chartCanvas" style="width:400px; height:400px;"></canvas>
+                </div>
+            </div>
+            <div class="studentContent">
+                <p>This is where the leader board will go</p>
+            </div>
+        <br><br>
+
+
         <br>
     </div>
 

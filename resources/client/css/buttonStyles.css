@@ -1,0 +1,39 @@
+#override {
+    visibility: hidden;
+}
+
+.bigButton {
+    font-size: 25px;
+    /*background-color: #54C6EB;*/
+    border: 2px solid black;
+    color: black;
+}
+button {
+    cursor:pointer;
+}
+
+.importantButton {
+    display: inline;
+    position: absolute;
+}
+
+#logoutButton {
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    border: none;
+}
+.editButton {
+    background-color: rgba(0,0,0,0);
+    border: 2px solid green;
+    color: green;
+}
+.deleteButton {
+    background-color: rgba(0,0,0,0);
+    border: 2px solid red;
+    color: red;
+}
+#cancel {
+    visibility: hidden;
+}

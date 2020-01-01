@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Class</title>
-    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/bodyStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/buttonStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/sideNav.css">
     <script src="/client/js/class.js"></script>
     <script src="/client/js/student.js"></script>
+    <script src="/client/js/teacher.js"></script>
 </head>
-<body onload="pageLoad1()">
+
+<body onload="pageLoadClass()">
 <span onclick="openNav()">&#9776; Menu</span>
 <div id="mySideNav" class="sideNav">
     <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
 </div>
-<button type="button" class="logoutButton" id="logoutButton">Logout</button>
-<div class="content">
+<button type="button" class="bigButton" id="logoutButton">Logout</button>
+
+<div class="mainBody">
     <h1 id="title"></h1>
-    <div id="listDiv"></div>
-    <p class="sensitive"> This is for Teachers only</p>
-    <p class="sensitive"> This is for Teachers only</p>
+    <div id="listDiv" class="smallBody"></div><br>
+    <div id="teacherContent">
+        <input type="text" placeholder="Enter student's Email" name="email" id="studentEmail"><br><br>
+        <button type="button" class="bigButton" id="addStudent">Find new Student</button><br><br>
+        <button type="button" class="bigButton" id="cancel">cancel</button><br><br>
+    </div>
 </div>
 </body>
 </html>

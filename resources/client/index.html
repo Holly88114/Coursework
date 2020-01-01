@@ -3,35 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>TITLE</title>
-    <link rel="stylesheet" type="text/css" href="/client/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/bodyStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/buttonStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/sideNav.css">
     <script src="/client/js/js.cookie.js"></script>
     <script src="/client/js/index.js"></script>
 
 </head>
-<body onload="pageLoad()">
+<body onload="pageLoadIndex()">
 
-<div class="content">
-    <h1>Welcome to the Website!</h1>
-    <h3>Login and Learn!</h3>
-
-    <input type="checkbox" name="teacherUser" value="Teacher" id="T" onclick="selectOnlyThis(this.id)">Teacher<br>
-    <input type="checkbox" name="studentUser" value="Student" id="S" onclick="selectOnlyThis(this.id)">Student<br>
+<div class="mainBody" id="mainBody">
     <br>
-    <form id="loginForm">
-        <div class="container" >
-            <label><b>Email: </b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <div class="smallBody">
+        <h1>Welcome to the Website!</h1>
+    </div>
+    <br>
+    <div class="smallBody">
+        <h3>Login and Learn!</h3>
 
-            <label><b>Password: </b></label>
-            <input type="password" placeholder="Enter Password" name="password" id="password" required>
-        </div>
-        <p>Create a new account <a href="/client/newUser.html" id="link">here</a></p>
-        <div class="container">
-            <button type="submit" id="loginButton">Login</button>
-            <button type="button" class="cancelButton">Cancel</button>
-        </div>
+        <input type="checkbox" name="teacherUser" value="Teacher" id="T" onclick="selectOnlyThis(this.id)">Teacher<br>
+        <input type="checkbox" name="studentUser" value="Student" id="S" onclick="selectOnlyThis(this.id)">Student<br>
         <br>
-    </form>
+        <form id="loginForm">
+            <div class="container" >
+                <label><b>Email: </b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                <label><b>Password: </b></label>
+                <input type="password" placeholder="Enter Password" name="password" id="password" required>
+            </div>
+            <p>Create a new account <a href="/client/index.html?newUser" id="link">here</a></p>
+            <div class="container">
+                <button type="submit" class="bigButton" id="loginButton">Login</button>
+                <button type="button" class="bigButton" id="cancelButton">Cancel</button>
+            </div>
+
+            <br>
+        </form>
+    </div>
+    <br>
 </div>
+
 </body>
 </html>

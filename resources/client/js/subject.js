@@ -1,10 +1,11 @@
 let subjectID = window.location.toString().substring(window.location.toString().indexOf("=")+1, window.location.toString().indexOf("_"));
-function pageLoad1() {
+function pageLoadSubject() {
     let url = window.location.toString();
     let name = url.substring(url.indexOf("&")+1);
 
     document.getElementById("logoutButton").addEventListener("click", logout);
     document.getElementById("addQ").addEventListener("click", addQuestion);
+    document.getElementById("deleteSub").addEventListener("click", deleteSub);
     document.title = name;
     document.getElementById("title").innerHTML = "Welcome to " + name + "!";
     listSubjects();
@@ -155,11 +156,32 @@ function cancelAdd() {
     document.getElementById("addQ").hidden = false;
 }
 
+function deleteSub() {
+    let areYouSure;
+    areYouSure = confirm("Are you sure? This is irreversible");
+    if (areYouSure) {
+        let formData = new FormData;
+        formData.append("id", subjectID);
+        fetch("/subject/delete", {method: 'post', body: formData}
+        ).then(response => response.json()
+        ).then(responseData => {
+            if (responseData.hasOwnProperty('error')) {
+                alert(responseData.error);
+            } else {
+                window.location.href = "/client/student.html";
+            }
+        });
+    }
+}
+
 function flashcard() {
     window.location.href = "/client/flashcard.html?id=" + subjectID;
 }
 function test() {
     window.location.href = "/client/test.html?id=" + subjectID;
+}
+function quiz() {
+    window.location.href = "/client/quiz.html?id=" + subjectID;
 }
 
 

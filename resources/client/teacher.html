@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teacher</title>
+    <link rel="stylesheet" type="text/css" href="/client/css/bodyStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/buttonStyles.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/sideNav.css">
+    <script src="/client/js/js.cookie.js"></script>
+    <script src="/client/js/teacher.js"></script>
+</head>
+<body onload="pageLoad()">
+<span onclick="openNav()">&#9776; Menu</span>
+<div id="mySideNav" class="sideNav">
+    <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+</div>
+<button type="button" class="bigButton" id="logoutButton" onclick="logout()">Logout</button>
+
+<div class="mainBody">
+    <h1 id="welcome"></h1>
+    <div class="smallBody" id="addClassStuff">
+        <form id="newClassForm">
+            <br>
+            <label><b>Class Name: </b></label>
+            <input type="text" placeholder="Class Name" name="name" id="name" required><br>
+        </form>
+
+        <div class="container">
+            <br>
+            <button type="submit" class="bigButton" id="submit">Create!</button>
+            <button type="button" class="bigButton" id="cancelButton">Cancel</button>
+            <br>
+        </div>
+        <br>
+    </div>
+    <br>
+</div>
+</body>
+</html>

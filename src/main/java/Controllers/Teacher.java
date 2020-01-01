@@ -7,6 +7,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.UUID;
 
 @Path("teacher/")
 public class Teacher {
@@ -63,6 +64,32 @@ public class Teacher {
     }
 
     @POST
+    @Path("select")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getTeacher(@CookieParam("token") String token) {
+        System.out.println("teacher/select");
+        JSONArray list = new JSONArray();
+        try {
+            PreparedStatement ps = Main.db.prepareStatement("SELECT TeacherId, Name, Email FROM Teachers WHERE Token = ?");
+            ps.setString(1, token);
+            ResultSet results = ps.executeQuery();
+            while (results.next()) {
+                JSONObject item = new JSONObject();
+                item.put("id", results.getInt(1));
+                item.put("name", results.getString(2));
+                item.put("email", results.getString(3));
+                list.add(item);
+            }
+            return list.toString();
+
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
+        }
+    }
+
+    @POST
     @Path("update")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
@@ -90,14 +117,14 @@ public class Teacher {
     @Path("delete")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteTeacher(@FormDataParam("email") String email) {
+    public String deleteTeacher(@CookieParam("token") String token) {
         try {
-            if (email == null) {
+            if (token == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            System.out.println("teacher/delete email=" + email);
-            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Teachers WHERE Email = ?");
-            ps.setString(1, email);
+            System.out.println("teacher/delete token=" + token);
+            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Teachers WHERE Token = ?");
+            ps.setString(1, token);
             ps.execute();
             return "{\"status\": \"OK\"}";
         } catch (Exception exception) {
@@ -115,14 +142,29 @@ public class Teacher {
             if (email == null || password == null) {
                 // checks the email and password are present
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
+                // if either the email or password aren't present this error is returned
             }
             PreparedStatement ps = Main.db.prepareStatement("SELECT TeacherID, Email, Password FROM Teachers");
+            // a prepared statement to select the students from the Students table
             ResultSet results = ps.executeQuery();
             while (results.next())  {
+                // while the next result isn't null
                 if (results.getString(2).equals(email) && results.getString(3).equals(password)) {
-                    Main.UserID = results.getInt(1);
-                    System.out.println(Main.UserID);
-                    return"{\"status\": \"OK\"}";
+                    String token = UUID.randomUUID().toString();
+                    // if the email and the password match then a token is generated
+
+                    PreparedStatement ps2 = Main.db.prepareStatement("UPDATE Teachers SET Token = ? WHERE Email = ?");
+                    // a prepared statement to update the user's token
+                    ps2.setString(1, token);
+                    ps2.setString(2, email);
+                    ps2.executeUpdate();
+
+                    JSONObject userDetails = new JSONObject();
+
+                    userDetails.put("email", email);
+                    userDetails.put("token", token);
+                    return userDetails.toString();
+                    // returns the email and the token of the student
                 }
             }
             return "{\"error\": \"Incorrect information entered.\"}";
@@ -180,6 +222,5 @@ public class Teacher {
             return false;
         }
     }
-
 
 }

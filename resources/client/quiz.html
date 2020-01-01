@@ -2,31 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Quiz</title>
     <link rel="stylesheet" type="text/css" href="/client/css/bodyStyles.css">
     <link rel="stylesheet" type="text/css" href="/client/css/buttonStyles.css">
     <link rel="stylesheet" type="text/css" href="/client/css/sideNav.css">
-    <script src="/client/js/test.js"></script>
+    <script src="/client/js/quiz.js"></script>
     <script src="/client/js/student.js"></script>
 </head>
-<body onload="pageLoadTest()" >
+<body onload="pageLoadQuiz()">
 <span onclick="openNav()">&#9776; Menu</span>
 <div id="mySideNav" class="sideNav">
     <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
 </div>
 <button type="button" class="bigButton" id="logoutButton">Logout</button>
 <div class="mainBody">
-    <h1>Test Time</h1>
+    <h1>Quiz</h1>
     <div id="smallContent" class="smallBody">
-        <h3 id="qaTitle">Click Next to start the Test</h3>
+        <h3 id="qaTitle">Click Next to start the Quiz!</h3>
         <p id="card"></p>
-        <input type="text" placeholder="Answer" name="answer" id="userAns" required><br>
-        <p id="systemAns"></p>
     </div>
     <br>
     <div>
-        <button type="button" class="bigButton" id="nextButton">Next</button><br><br>
-        <button type="button" class="bigButton" id="override">Override</button><br><br>
+        <button type="button" class="bigButton" id="nextButton">Next</button> <br><br>
     </div>
 </div>
 </body>
