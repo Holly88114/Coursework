@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Enrollment.java" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Incorrect.java" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Question.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Scores.java" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Student.java" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Subject.java" dialect="SQLite" />
     <file url="file://$PROJECT_DIR$/src/main/java/Controllers/Teacher.java" dialect="SQLite" />

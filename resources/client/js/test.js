@@ -165,7 +165,9 @@ function addToScore(correct) {
             fetch('/student/update', {method: 'post', body: formData2}
             ).then(response => response.json()
             ).then(questions => {
-
+                if (questions.hasOwnProperty('error')) {
+                    alert(questions.error);
+                }
             });
         }
     });

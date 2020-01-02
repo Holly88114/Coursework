@@ -49,7 +49,7 @@ function startQuiz() {
                         addAnswerData(false, index[x]);
                     }
                 }
-
+                addToScore(correct);
                 if (correct > 7) {
                     document.getElementById("qaTitle").innerHTML = correct + "/10 Well Done!";
                     document.getElementById("qaTitle").style.color = 'green';
@@ -83,9 +83,7 @@ function startQuiz() {
                     }
                 });
             }
-
         }
-
     });
 }
 
@@ -109,4 +107,29 @@ function makeIndex(length) {
     } while (count !== 10);
 }
 
+function addToScore(correct) {
+    let score = 0;
+    let formData1 = new FormData;
+    formData1.append("token", document.cookie);
+    fetch('/student/select', {method: 'post', body: formData1}
+    ).then(response => response.json()
+    ).then(scoreData => {
+        if (scoreData.hasOwnProperty('error')) {
+            alert(scoreData.error);
+        } else {
+            score = parseInt(scoreData[0].score);
+            score += correct;
+            let formData2 = new FormData;
+            formData2.append("token", document.cookie);
+            formData2.append("score", score);
+            fetch('/student/update', {method: 'post', body: formData2}
+            ).then(response => response.json()
+            ).then(questions => {
+                if (questions.hasOwnProperty('error')) {
+                    alert(questions.error);
+                }
+            });
+        }
+    });
+}
 

@@ -1,12 +1,13 @@
 function pageLoadStudent() {
     if (window.location.search === "?addSubject") {
-        pageSetup();
+        pageSetupAdd();
     } else {
         getUsername();
     }
     listSubjects();
     document.getElementById("logoutButton").addEventListener("click", logout);
-    table();
+    tableValues();
+    //leaderboard();
 }
 
 function logout() {
@@ -33,10 +34,10 @@ function listSubjects() {
                 subjectLink.innerHTML = responseData[x].name;
                 sideNav.appendChild(subjectLink);
             }
-            let subjectLink = document.createElement('a');
-            subjectLink.setAttribute("href", "/client/student.html?addSubject");
-            subjectLink.innerHTML = "New Subject...";
-            sideNav.appendChild(subjectLink);
+            let createLink = document.createElement('a');
+            createLink.setAttribute("href", "/client/student.html?addSubject");
+            createLink.innerHTML = "Create Subject...";
+            sideNav.appendChild(createLink);
             listClasses();
         }
 
@@ -84,7 +85,7 @@ function getUsername() {
     });
 }
 
-function pageSetup() {
+function pageSetupAdd() {
     document.getElementById("mainBody").innerHTML = "";
     document.getElementById("mainBody").innerHTML =
         `<br>
@@ -151,47 +152,78 @@ function submit(event) {
     });
 }
 
-function table() {
+/*label: 'Number of things',
+    data: [scoreArray[0,0], scoreArray[0,1], scoreArray[0,2], scoreArray[0,3], scoreArray[0,4]],
+    fill: false,
+    backgroundColor: ['red', 'red', 'red', 'red', 'red'],
+    order: 1*/
+
+function table(scoreArray) {
 
     const canvas = document.getElementById('chartCanvas');
     const context = canvas.getContext('2d');
 
     let myChart = new Chart(context, {
         type: 'line',
-
         data: {
             labels: ['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5'],
-            datasets: [{
-                label: 'Number of things',
-                color: 'red',
-                data: [90, 80, 100, 90, 90],
-                fill: false,
-                backgroundColor: ['red', 'red', 'red', 'red', 'red'],
-                order: 1
-            }, {
-                label: 'Some other things',
-                data: [60, 50, 70, 50, 70],
-                fill: false,
-                backgroundColor: ['blue', 'blue', 'blue', 'blue', 'blue'],
-                order: 2
-            }]
+
+            datasets: []
+
         },
         options: {
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        suggestedMax: 10
                     }
                 }]
             },
             responsive: false
         }
     });
+
+    for (let x = 0; x < scoreArray.length/5; x++) {
+
+        let newDataset = {label: 'Number of things',
+            data: [scoreArray[x*5], scoreArray[(x*5)+1], scoreArray[(x*5)+2], scoreArray[(x*5)+3], scoreArray[(x*5)+4]],
+            fill: false,
+            backgroundColor: ['red', 'red', 'red', 'red', 'red'],
+            order: 1};
+        myChart.data.datasets.push(newDataset);
+    }
+
+    myChart.update();
+
 }
 
 function tableValues() {
     let formData = new FormData;
+    formData.append("token", document.cookie);
 
+    fetch("/score/get", {method: 'post', body: formData}
+    ).then(response => response.json()
+    ).then(responseData => {
+        if (responseData.hasOwnProperty('error')) {
+            alert(responseData.error);
+        } else {
+            let scoreArray = [];
+            for (let x = 0; x < responseData.length; x++) {
+                let num1 = (responseData[x].scores).substring(1, 3);
+                let num2 = (responseData[x].scores).substring(3, 5);
+                let num3 = (responseData[x].scores).substring(5, 7);
+                let num4 = (responseData[x].scores).substring(7, 9);
+                let num5 = (responseData[x].scores).substring(9, 11);
+                scoreArray.push(num1, num2, num3, num4, num5);
+            }
+            table(scoreArray);
+
+        }
+    });
+}
+
+function leaderboard() {
     fetch("/class/listSpecific", {method: 'post', body: formData}
     ).then(response => response.json()
     ).then(responseData => {
@@ -202,3 +234,4 @@ function tableValues() {
         }
     });
 }
+
