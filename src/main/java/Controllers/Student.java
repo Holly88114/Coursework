@@ -55,13 +55,12 @@ public class Student {
         JSONArray list = new JSONArray();
         // creates the array for the data
         try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT StudentID, Name, Email FROM Students");
+            PreparedStatement ps = Main.db.prepareStatement("SELECT Name, Score FROM Students");
             ResultSet results = ps.executeQuery();
             while (results.next()) {
                 JSONObject item = new JSONObject();
-                item.put("id", results.getInt(1));
-                item.put("name", results.getString(2));
-                item.put("email", results.getString(3));
+                item.put("name", results.getString(1));
+                item.put("score", results.getString(2));
                 list.add(item);
                 // adds the content from the database into the JSON object
             }

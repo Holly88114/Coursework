@@ -110,11 +110,16 @@ function pageLoadTest() {
                 let id = questions[index].id;
                 let timesCorrect = questions[index].timesCorrect;
                 let timesIncorrect = questions[index].timesIncorrect;
+                console.log("id=" + id);
+                console.log("correct=" + timesCorrect);
+                console.log("incorrect=" + timesIncorrect);
 
                 if (ansCorrect) {
                     timesCorrect++;
+                    questions[index].timesCorrect++
                 } else {
                     timesIncorrect++;
+                    questions[index].timesIncorrect++
                 }
 
                 let answerData = new FormData;
@@ -129,6 +134,10 @@ function pageLoadTest() {
                         alert(responseData.error);
                     }
                 });
+
+                console.log("correct=" + questions[index].timesCorrect);
+                console.log("incorrect=" + questions[index].timesIncorrect);
+
             }
 
             function invertLast() {

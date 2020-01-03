@@ -30,6 +30,7 @@ function startQuiz() {
         } else {
             document.getElementById("nextButton").addEventListener("click", markQuiz);
             makeIndex(questions.length);
+
             for (let x = 0; x < 10; x++) {
                 let num = x+1;
                 box.innerHTML += "Question " + num + ": " + questions[index[x]].content;
@@ -57,6 +58,7 @@ function startQuiz() {
                     document.getElementById("qaTitle").innerHTML = correct + "/10 More work needed.";
                     document.getElementById("qaTitle").style.color = 'red';
                 }
+                addToChart(correct);
             }
 
             function addAnswerData(ansCorrect, questionId) {
@@ -111,6 +113,7 @@ function addToScore(correct) {
     let score = 0;
     let formData1 = new FormData;
     formData1.append("token", document.cookie);
+
     fetch('/student/select', {method: 'post', body: formData1}
     ).then(response => response.json()
     ).then(scoreData => {
@@ -133,3 +136,56 @@ function addToScore(correct) {
     });
 }
 
+function addToChart(correct) {
+    let rawScore;
+    let formData1 = new FormData;
+    formData1.append("token", document.cookie);
+
+    fetch('/score/get', {method: 'post', body: formData1}
+    ).then(response => response.json()
+    ).then(scoreData => {
+        if (scoreData.hasOwnProperty('error')) {
+            alert(scoreData.error);
+        } else {
+            for (let x = 0; x < scoreData.length; x++) {
+                if (scoreData[x].subjectID === subjectID) {
+                    rawScore = scoreData[x].scores;
+                }
+            }
+            let newScore;
+            rawScore = rawScore.substring(0, 1) + rawScore.substring(3, 11);
+            if (correct === 10) {
+                newScore = rawScore + correct;
+            } else {
+                newScore = rawScore + "0" + correct;
+            }
+            console.log(newScore);
+            updateScore(newScore);
+        }
+    });
+}
+
+function updateScore(newScore) {
+
+    let token = "";
+    let temp = document.cookie;
+    let c = "=";
+    for (let index = temp.indexOf(c);index >= 0; index = temp.indexOf(c, index + 1)) {
+        if (temp[index-1] === "n") {
+            token = temp.substring(index+1, temp.length);
+        }
+    }
+
+    let answerData = new FormData;
+    answerData.append("token", token.toString());
+    answerData.append("subjectID", subjectID);
+    answerData.append("score", newScore);
+
+    fetch('score/update', {method: 'post', body: answerData}
+    ).then(response => response.json()
+    ).then(responseData => {
+        if (responseData.hasOwnProperty('error')) {
+            alert(responseData.error);
+        }
+    });
+}

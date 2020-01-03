@@ -19,22 +19,25 @@ public class Subject {
             if (name == null || accessType == null || token == null) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            int subjectID;
-            PreparedStatement ps1 = Main.db.prepareStatement("SELECT StudentID FROM Students WHERE Token = ?");
-            ps1.setString(1, token);
-            ResultSet results = ps1.executeQuery();
-            if (results.next()) {
-                subjectID = results.getInt(1);
-            } else {
-                return "{\"error\": \"Invalid token!\"}";
-            }
-            System.out.println("subject/new name=" + name);
-            PreparedStatement ps2 = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType, StudentID) VALUES (?, ?, ?)");
-            ps2.setString(1, name);
-            ps2.setBoolean(2, accessType);
-            ps2.setInt(3, subjectID);
 
-            ps2.execute();
+            System.out.println("subject/new name=" + name);
+            PreparedStatement ps1 = Main.db.prepareStatement("INSERT INTO Subjects (SubjectName, AccessType, StudentID) VALUES (?, ?, (SELECT StudentID FROM Students WHERE Token = ?))");
+            ps1.setString(1, name);
+            ps1.setBoolean(2, accessType);
+            ps1.setString(3, token);
+
+            ps1.execute();
+
+            PreparedStatement ps2 = Main.db.prepareStatement("SELECT last_insert_rowid()");
+            ResultSet results1 = ps2.executeQuery();
+            int subjectID = results1.getInt(1);
+
+            PreparedStatement ps3 = Main.db.prepareStatement("INSERT INTO Scores (SubjectID, StudentID) VALUES (?, (SELECT StudentID FROM Students WHERE Token = ?))");
+            ps3.setInt(1, subjectID);
+            ps3.setString(2, token);
+
+            ps3.execute();
+
             return "{\"status\": \"OK\"}";
         } catch (Exception exception) {
             System.out.println("Database error: " + exception.getMessage());
@@ -92,6 +95,32 @@ public class Subject {
             return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
         }
     }
+
+    @POST
+    @Path("get")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String listStudentSubjects(@FormDataParam("subjectID") Integer subjectID) {
+        try {
+            if (subjectID == null) {
+                return "{\"error\": \"One or more data parameters are missing.\"}";
+            }
+            System.out.println("subject/get subjectID= " + subjectID);
+            JSONArray list = new JSONArray();
+            PreparedStatement ps = Main.db.prepareStatement("SELECT SubjectName FROM Subjects WHERE SubjectID = ?");
+            ps.setInt(1, subjectID);
+            ResultSet results = ps.executeQuery();
+
+            JSONObject item = new JSONObject();
+            item.put("name", results.getString(1));
+
+            return item.toString();
+        } catch (Exception exception) {
+            System.out.println("Database error: " + exception.getMessage());
+            return "{\"error\": \"Unable to update item, please see server console for more info.\"}";
+        }
+    }
+
 
     @POST
     @Path("update")

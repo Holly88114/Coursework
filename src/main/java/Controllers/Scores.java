@@ -78,13 +78,12 @@ public class Scores {
         }
     }
 
-
     @POST
     @Path("update")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     // an update function to change the score
-    public String updateScores(@CookieParam("token") String token, @FormDataParam("subjectID") Integer subjectID, @FormDataParam("scores") Integer scores) {
+    public String updateScores(@CookieParam("token") String token, @FormDataParam("subjectID") Integer subjectID, @FormDataParam("score") Integer scores) {
         // requires the user token, the subject id, and the new scores
         try {
             if (token == null || subjectID == null || scores == null) {

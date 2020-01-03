@@ -7,14 +7,16 @@ function pageLoadStudent() {
     listSubjects();
     document.getElementById("logoutButton").addEventListener("click", logout);
     tableValues();
-    //leaderboard();
+    leaderboard();
 }
 
 function logout() {
     window.location.href = "/client/index.html/?logoutStudent"
 }
 
+let subjectInfo = [];
 function listSubjects() {
+
     let formData = new FormData;
     formData.append('token', document.cookie);
     fetch("/subject/listSpecific", {method: 'post', body: formData}
@@ -33,6 +35,7 @@ function listSubjects() {
                 subjectLink.setAttribute("href", "/client/subject.html?id=" + responseData[x].id + "_name&" + responseData[x].name);
                 subjectLink.innerHTML = responseData[x].name;
                 sideNav.appendChild(subjectLink);
+                subjectInfo.push(responseData[x].id, responseData[x].name);
             }
             let createLink = document.createElement('a');
             createLink.setAttribute("href", "/client/student.html?addSubject");
@@ -40,7 +43,6 @@ function listSubjects() {
             sideNav.appendChild(createLink);
             listClasses();
         }
-
     });
 }
 function listClasses() {
@@ -137,11 +139,11 @@ function submit(event) {
     event.preventDefault();
 
     const form = document.getElementById("newSubjectForm");
-    const formData = new FormData(form);
-    formData.append("token", document.cookie);
-    formData.append("accessType", accessType());
+    const formData1 = new FormData(form);
+    formData1.append("token", document.cookie);
+    formData1.append("accessType", accessType());
 
-    fetch("/subject/add", {method: 'post', body: formData}
+    fetch("/subject/add", {method: 'post', body: formData1}
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {
@@ -152,24 +154,14 @@ function submit(event) {
     });
 }
 
-/*label: 'Number of things',
-    data: [scoreArray[0,0], scoreArray[0,1], scoreArray[0,2], scoreArray[0,3], scoreArray[0,4]],
-    fill: false,
-    backgroundColor: ['red', 'red', 'red', 'red', 'red'],
-    order: 1*/
-
-function table(scoreArray) {
-
+function table(scoreArray, responseData) {
     const canvas = document.getElementById('chartCanvas');
     const context = canvas.getContext('2d');
-
     let myChart = new Chart(context, {
         type: 'line',
         data: {
             labels: ['Test 1', 'Test 2', 'Test 3', 'Test 4', 'Test 5'],
-
             datasets: []
-
         },
         options: {
             scales: {
@@ -179,59 +171,99 @@ function table(scoreArray) {
                         suggestedMax: 10
                     }
                 }]
-            },
-            responsive: false
+            }, responsive: false
         }
     });
 
-    for (let x = 0; x < scoreArray.length/5; x++) {
+    let colourArray = ['red', 'blue', 'green', 'purple', 'orange'];
 
-        let newDataset = {label: 'Number of things',
+
+    for (let x = 0; x < scoreArray.length/5; x++) {
+        let name;
+        for (let y = 0; y < subjectInfo.length; y++) {
+
+            if (subjectInfo[y] == responseData[x].subjectID) {
+                name = subjectInfo[y+1];
+
+            }
+        }
+        let newDataset = {label: name,
             data: [scoreArray[x*5], scoreArray[(x*5)+1], scoreArray[(x*5)+2], scoreArray[(x*5)+3], scoreArray[(x*5)+4]],
             fill: false,
-            backgroundColor: ['red', 'red', 'red', 'red', 'red'],
+            backgroundColor: [colourArray[x % 5], colourArray[x % 5], colourArray[x % 5], colourArray[x % 5], colourArray[x % 5]],
+            borderColor: colourArray[x % 5],
             order: 1};
         myChart.data.datasets.push(newDataset);
     }
-
     myChart.update();
+
 
 }
 
 function tableValues() {
-    let formData = new FormData;
-    formData.append("token", document.cookie);
+    let formData1 = new FormData;
+    formData1.append("token", document.cookie);
 
-    fetch("/score/get", {method: 'post', body: formData}
+    fetch("/score/get", {method: 'post', body: formData1}
     ).then(response => response.json()
-    ).then(responseData => {
-        if (responseData.hasOwnProperty('error')) {
-            alert(responseData.error);
+    ).then(scoreData => {
+        if (scoreData.hasOwnProperty('error')) {
+            alert(scoreData.error);
         } else {
             let scoreArray = [];
-            for (let x = 0; x < responseData.length; x++) {
-                let num1 = (responseData[x].scores).substring(1, 3);
-                let num2 = (responseData[x].scores).substring(3, 5);
-                let num3 = (responseData[x].scores).substring(5, 7);
-                let num4 = (responseData[x].scores).substring(7, 9);
-                let num5 = (responseData[x].scores).substring(9, 11);
+
+            for (let x = 0; x < scoreData.length; x++) {
+                let num1 = (scoreData[x].scores).substring(1, 3);
+                let num2 = (scoreData[x].scores).substring(3, 5);
+                let num3 = (scoreData[x].scores).substring(5, 7);
+                let num4 = (scoreData[x].scores).substring(7, 9);
+                let num5 = (scoreData[x].scores).substring(9, 11);
                 scoreArray.push(num1, num2, num3, num4, num5);
             }
-            table(scoreArray);
+            table(scoreArray, scoreData);
 
         }
     });
 }
 
 function leaderboard() {
-    fetch("/class/listSpecific", {method: 'post', body: formData}
+    fetch("/student/list", {method: 'get'}
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {
             alert(responseData.error);
         } else {
+            let array = responseData;
 
+            for (let i = 0; i < array.length -1 ; i++) {
+                for (let j = 1; j < array.length -i; j++) {
+                    if (parseInt(array[j-1].score) < parseInt(array[j].score)) {
+                        let temp = array[j-1];
+                        array[j-1] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
+
+            document.getElementById("leaderboard").innerHTML = array.toString();
+
+            let studentsHTML = '<table id="table">' +
+                '<tr>' +
+                '<th>Position</th>' +
+                '<th>Student Name</th>' +
+                '<th>Score</th>' +
+                '</tr>';
+
+                for (let x = 0; x < array.length; x++) {
+                    let student = array[x];
+                    studentsHTML += `<tr contenteditable="false">` +
+                        `<td>${x+1}</td>` +
+                        `<td>${student.name}</td>` +
+                        `<td>${student.score}</td>` +
+                        `</tr>`;
+                }
+            studentsHTML += '</table>';
+                document.getElementById("leaderboard").innerHTML = studentsHTML;
         }
     });
 }
-

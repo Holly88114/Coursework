@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Main {
-    public static int UserID = 0;
+
     public static void main(String[] args) {
         openDatabase("Database.db");
         ResourceConfig config = new ResourceConfig();

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Done most of the stuff now, very few comments">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controllers/Scores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Done most of the stuff now, few more comments, table 1/2 working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/quiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/quiz.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/student.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/js/subject.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/subject.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/js/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/student.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Scores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Scores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Server/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +246,8 @@
       <workItem from="1577179124935" duration="23124000" />
       <workItem from="1577278725779" duration="20150000" />
       <workItem from="1577543761371" duration="1078000" />
-      <workItem from="1577792459396" duration="26478000" />
+      <workItem from="1577792459396" duration="26633000" />
+      <workItem from="1577982921256" duration="21519000" />
     </task>
     <task id="LOCAL-00001" summary="did a bunch of work - all the controller stuff">
       <created>1567669053477</created>
@@ -380,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577907600697</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Done most of the stuff now, few more comments, table 1/2 working">
+      <created>1577982791474</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1577982791474</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,37 +421,38 @@
     <MESSAGE value="Login complete, newUser, newSubject, student 1/2" />
     <MESSAGE value="Login flashcards, question CRUDs, started class - can't hide from students" />
     <MESSAGE value="Done most of the stuff now, very few comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done most of the stuff now, very few comments" />
+    <MESSAGE value="Done most of the stuff now, few more comments, table 1/2 working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done most of the stuff now, few more comments, table 1/2 working" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="8" key="#SQL_Dialects" timestamp="1577962401253">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="233" y="8" key="#SQL_Dialects/0.0.1280.689@0.0.1280.689" timestamp="1577962401253" />
-    <state x="256" y="0" key="CommitChangelistDialog2" timestamp="1577907599677">
+    <state x="256" y="0" key="CommitChangelistDialog2" timestamp="1577982790763">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="256" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1577907599677" />
+    <state x="256" y="0" key="CommitChangelistDialog2/0.0.1280.689@0.0.1280.689" timestamp="1577982790763" />
     <state x="398" y="104" key="FileChooserDialogImpl" timestamp="1577011526681">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="398" y="104" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1577011526681" />
-    <state width="1237" height="112" key="GridCell.Tab.0.bottom" timestamp="1577982698040">
+    <state width="1237" height="112" key="GridCell.Tab.0.bottom" timestamp="1578059201863">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="112" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1577982698040" />
-    <state width="1237" height="112" key="GridCell.Tab.0.center" timestamp="1577982698040">
+    <state width="1237" height="112" key="GridCell.Tab.0.bottom/0.0.1280.689@0.0.1280.689" timestamp="1578059201863" />
+    <state width="1237" height="112" key="GridCell.Tab.0.center" timestamp="1578059201863">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="112" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1577982698040" />
-    <state width="1237" height="112" key="GridCell.Tab.0.left" timestamp="1577982698040">
+    <state width="1237" height="112" key="GridCell.Tab.0.center/0.0.1280.689@0.0.1280.689" timestamp="1578059201863" />
+    <state width="1237" height="112" key="GridCell.Tab.0.left" timestamp="1578059201863">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="112" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1577982698040" />
-    <state width="1237" height="112" key="GridCell.Tab.0.right" timestamp="1577982698040">
+    <state width="1237" height="112" key="GridCell.Tab.0.left/0.0.1280.689@0.0.1280.689" timestamp="1578059201863" />
+    <state width="1237" height="112" key="GridCell.Tab.0.right" timestamp="1578059201863">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state width="1237" height="112" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1577982698040" />
+    <state width="1237" height="112" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1578059201863" />
     <state width="691" height="143" key="GridCell.Tab.1.bottom" timestamp="1577137237348">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -463,14 +473,18 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1577011546285" />
-    <state x="233" y="82" key="Vcs.Push.Dialog.v2" timestamp="1577907602768">
+    <state x="233" y="82" key="Vcs.Push.Dialog.v2" timestamp="1577982793161">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1577907602768" />
-    <state x="348" y="174" key="com.intellij.ide.util.TipDialog" timestamp="1577792459566">
+    <state x="233" y="82" key="Vcs.Push.Dialog.v2/0.0.1280.689@0.0.1280.689" timestamp="1577982793161" />
+    <state x="348" y="174" key="com.intellij.ide.util.TipDialog" timestamp="1577982928094">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="348" y="174" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1577792459566" />
+    <state x="348" y="174" key="com.intellij.ide.util.TipDialog/0.0.1280.689@0.0.1280.689" timestamp="1577982928094" />
+    <state x="313" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1578047970047">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="313" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.689@0.0.1280.689" timestamp="1578047970047" />
     <state x="452" y="265" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577011556420">
       <screen x="0" y="0" width="1280" height="689" />
     </state>

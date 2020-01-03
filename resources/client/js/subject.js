@@ -181,7 +181,12 @@ function test() {
     window.location.href = "/client/test.html?id=" + subjectID;
 }
 function quiz() {
-    window.location.href = "/client/quiz.html?id=" + subjectID;
+    let table = document.getElementById("table");
+    if (table.rows.length >= 10) {
+        window.location.href = "/client/quiz.html?id=" + subjectID;
+    } else {
+        alert("You need at least 10 questions to start a quiz");
+    }
 }
 
 
