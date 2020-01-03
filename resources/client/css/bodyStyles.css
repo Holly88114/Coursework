@@ -51,5 +51,10 @@ body {
 #addClassStuff {
     visibility: hidden;
 }
+#chartHere {
+    align-content: center;
+    display: inline-block;
+    text-align: center;
+}
 
 

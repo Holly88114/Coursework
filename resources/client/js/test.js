@@ -101,7 +101,7 @@ function pageLoadTest() {
 
             function showQuestion() {
                 document.getElementById("qaTitle").style.color = "black";
-                document.getElementById("qaTitle").innerHTML = "Question";
+                document.getElementById("qaTitle").innerHTML = "Question " + count;
                 document.getElementById("nextButton").innerHTML = "Answer";
                 document.getElementById("card").innerHTML = questions[index].content;
             }

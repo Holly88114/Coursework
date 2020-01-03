@@ -213,6 +213,7 @@ function tableValues() {
             let scoreArray = [];
 
             for (let x = 0; x < scoreData.length; x++) {
+                console.log(scoreData[x].scores);
                 let num1 = (scoreData[x].scores).substring(1, 3);
                 let num2 = (scoreData[x].scores).substring(3, 5);
                 let num3 = (scoreData[x].scores).substring(5, 7);
@@ -220,6 +221,7 @@ function tableValues() {
                 let num5 = (scoreData[x].scores).substring(9, 11);
                 scoreArray.push(num1, num2, num3, num4, num5);
             }
+
             table(scoreArray, scoreData);
 
         }

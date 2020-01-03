@@ -40,6 +40,8 @@ function startQuiz() {
             }
 
             function markQuiz() {
+                document.getElementById("nextButton").removeEventListener("click", markQuiz);
+                window.scrollTo(0,0);
                 let correct = 0;
                 let answerArray = document.getElementsByClassName("answers");
                 for (let x = 0; x < 10; x++) {
@@ -51,7 +53,7 @@ function startQuiz() {
                     }
                 }
                 addToScore(correct);
-                if (correct > 7) {
+                if (correct > 6) {
                     document.getElementById("qaTitle").innerHTML = correct + "/10 Well Done!";
                     document.getElementById("qaTitle").style.color = 'green';
                 } else {
@@ -94,8 +96,8 @@ function makeIndex(length) {
     let temp = 0;
     let match = false;
     do {
-        temp = Math.floor(Math.random()*(length-1));
-        for (let y = 0; y < index.length; y++) {
+        temp = Math.floor(Math.random()*(length));
+        for (let y = 0; y < index.length ; y++) {
             if (temp === index[y]) {
                 match = true;
             }
@@ -153,39 +155,43 @@ function addToChart(correct) {
                 }
             }
             let newScore;
+            console.log(rawScore);
             rawScore = rawScore.substring(0, 1) + rawScore.substring(3, 11);
+            console.log(rawScore);
             if (correct === 10) {
                 newScore = rawScore + correct;
             } else {
                 newScore = rawScore + "0" + correct;
             }
             console.log(newScore);
-            updateScore(newScore);
+            incrementScore(newScore);
+
         }
     });
 }
 
-function updateScore(newScore) {
+function incrementScore(newScore) {
 
-    let token = "";
-    let temp = document.cookie;
-    let c = "=";
-    for (let index = temp.indexOf(c);index >= 0; index = temp.indexOf(c, index + 1)) {
-        if (temp[index-1] === "n") {
-            token = temp.substring(index+1, temp.length);
-        }
-    }
+    console.log(newScore);
+    let formData = new FormData;
+    formData.append('token', document.cookie);
+    formData.append('subjectID', subjectID);
+    formData.append('score', newScore);
+    console.log(formData.get("score"));
 
-    let answerData = new FormData;
-    answerData.append("token", token.toString());
-    answerData.append("subjectID", subjectID);
-    answerData.append("score", newScore);
-
-    fetch('score/update', {method: 'post', body: answerData}
+    fetch("/score/update", {method: 'post', body: formData}
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {
             alert(responseData.error);
+        } else {
+            document.getElementById("nextButton").innerHTML = "Return to Home";
+
+            document.getElementById("nextButton").addEventListener("click", goHome);
         }
     });
+}
+
+function goHome() {
+    window.location.href = "/client/student.html";
 }

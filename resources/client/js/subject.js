@@ -182,10 +182,10 @@ function test() {
 }
 function quiz() {
     let table = document.getElementById("table");
-    if (table.rows.length >= 10) {
+    if (table.rows.length > 10) {
         window.location.href = "/client/quiz.html?id=" + subjectID;
     } else {
-        alert("You need at least 10 questions to start a quiz");
+        alert("You need more than 10 questions to start a quiz");
     }
 }
 

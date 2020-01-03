@@ -9,8 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 // importing all the libraries used
 
-@Path("score/")
 // the root path is score for all of the functions
+@Path("score/")
 public class Scores {
 
     @POST
@@ -53,7 +53,7 @@ public class Scores {
     // a get function to return the score
     public String getScore(@CookieParam("token") String token) {
         // needs the subject id and a token to find the right entry
-        System.out.println("class/getName");
+        System.out.println("score/getName");
         JSONArray list = new JSONArray();
         try {
             // the prepared statement selects the score from the scores table according to the correct subject and student id
@@ -83,7 +83,7 @@ public class Scores {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
     // an update function to change the score
-    public String updateScores(@CookieParam("token") String token, @FormDataParam("subjectID") Integer subjectID, @FormDataParam("score") Integer scores) {
+    public String updateScores(@CookieParam("token") String token, @FormDataParam("subjectID") Integer subjectID, @FormDataParam("score") String scores) {
         // requires the user token, the subject id, and the new scores
         try {
             if (token == null || subjectID == null || scores == null) {
@@ -93,7 +93,7 @@ public class Scores {
             System.out.println("score/update id=" + subjectID);
             // the prepared statement updates the score of the subject and the user that just completed a test
             PreparedStatement ps = Main.db.prepareStatement("UPDATE Scores SET Scores = ? WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?) AND SubjectID = ?");
-            ps.setInt(1, scores);
+            ps.setString(1, scores);
             ps.setString(2, token);
             ps.setInt(3, subjectID);
             ps.execute();
