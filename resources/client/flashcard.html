@@ -9,24 +9,24 @@
     <script src="/client/js/flashcard.js"></script>
     <script src="/client/js/student.js"></script>
 </head>
-<body onload="pageLoad1()">
+<body onload="pageLoadFlash()">
 <span onclick="openNav()">&#9776; Menu</span>
 <div id="mySideNav" class="sideNav">
     <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
 </div>
 <button type="button" class="bigButton" id="logoutButton">Logout</button>
-    <div class="mainBody">
-        <h1>Flashcards</h1>
-        <div id="smallContent" class="smallBody">
-            <h3 id="qaTitle">Click Next to start Flashcards!</h3>
-            <p id="card"></p>
-        </div>
-        <br>
-        <div>
-            <button type="button" class="bigButton" id="answerButton">Question</button>
-            <button type="button" class="bigButton" id="nextButton">Next</button> <br><br>
-
-        </div>
+<div class="mainBody">
+    <h1>Flashcards</h1>
+    <div id="smallContent" class="smallBody">
+        <h3 id="qaTitle">Click Next to start Flashcards!</h3>
+        <p id="card"></p>
     </div>
+    <br>
+    <div>
+        <button type="button" class="bigButton" id="answerButton">Question</button>
+        <button type="button" class="bigButton" id="nextButton">Next</button> <br><br>
+
+    </div>
+</div>
 </body>
 </html>

@@ -69,6 +69,20 @@ function addNewClass() {
     let element = document.getElementById("chartHere");
     element.parentNode.removeChild(element);
     document.getElementById("addClassStuff").style.visibility = "visible";
+    document.getElementById("addClassStuff").innerHTML =
+    `<form id="newClassForm">
+            <br>
+            <label><b>Class Name: </b></label>
+            <input type="text" placeholder="Class Name" name="name" id="name" required><br>
+        </form>
+
+        <div class="container">
+            <br>
+            <button type="submit" class="bigButton" id="submit">Create!</button>
+            <button type="button" class="bigButton" id="cancelButton">Cancel</button>
+            <br>
+        </div>
+        <br>`;
     document.getElementById("submit").addEventListener("click", submitAddClass);
     document.getElementById("cancelButton").addEventListener("click", cancelClass);
 }

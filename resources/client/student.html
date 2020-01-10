@@ -11,38 +11,27 @@
     <script src="/client/js/student.js"></script>
 </head>
 <body onload="pageLoadStudent()">
-
-    <span onclick="openNav()">&#9776; Menu</span>
-    <div id="mySideNav" class="sideNav">
-        <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+<span onclick="openNav()">&#9776; Menu</span>
+<div id="mySideNav" class="sideNav">
+    <a href="#" class="closeButton" onclick="closeNav()">&times;</a>
+</div>
+<button type="button" class="bigButton" id="logoutButton">Logout</button>
+<div class="mainBody" id="mainBody">
+    <br>
+    <div class="smallBody">
+        <h1 id="welcome"></h1>
     </div>
-    <button type="button" class="bigButton" id="logoutButton">Logout</button>
-
-    <div class="mainBody" id="mainBody">
-        <br>
-        <div class="smallBody">
-            <h1 id="welcome"></h1>
+    <br><br>
+    <div class="studentContent">
+        <div>
+            <h3>Quiz Progress!</h3>
+            <canvas id="chartCanvas" style="width:400px; height:300px;"></canvas>
         </div>
-        <br>
-
-
-            <br>
-            <div class="studentContent">
-                <div>
-                    <h3>Quiz Progress!</h3>
-                    <canvas id="chartCanvas" style="width:400px; height:400px;"></canvas>
-                </div>
-            </div>
-            <div class="studentContent">
-                <h3>Leaderboard</h3>
-                <p id="leaderboard"></p>
-            </div>
-        <br><br>
-
-
-        <br>
     </div>
-
-
+    <div class="studentContent">
+        <h3>Leaderboard</h3>
+        <p id="leaderboard"></p>
+    </div><br><br><br>
+</div>
 </body>
 </html>

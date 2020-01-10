@@ -1,47 +1,72 @@
 function pageLoadStudent() {
+    // the page load function for the student page
     if (window.location.search === "?addSubject") {
         pageSetupAdd();
+        // if the search item is '?addSubject' then the page is built differently in order to add a new subject
     } else {
         getUsername();
+        // if there is no special search term the normal page is loaded
     }
     listSubjects();
+    // lists the subjects for the side navigation bar
     document.getElementById("logoutButton").addEventListener("click", logout);
+    // set the logout event listener
     tableValues();
+    // gets the line graph values
     leaderboard();
+    // prints the leaderboard
 }
 
 function logout() {
     window.location.href = "/client/index.html/?logoutStudent"
+    // logout sends the user to the index page with the search term to logout
 }
 
 let subjectInfo = [];
+// declare the subject information array
 function listSubjects() {
 
     let formData = new FormData;
     formData.append('token', document.cookie);
+    // appends the required parameter for the fetch
     fetch("/subject/listSpecific", {method: 'post', body: formData}
+    // gets a list of the student's subjects
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {
             alert(responseData.error);
+            // if the response data has an error property, print it
         } else {
             let sideNav = document.getElementById("mySideNav");
+            // actual side bar
             let homeLink = document.createElement('a');
+            // element to add link for home page
             homeLink.setAttribute("href", "/client/student.html");
             homeLink.innerHTML = "Home";
+            // url and the name to be displayed added to the properties of the element
             sideNav.appendChild(homeLink);
+            // element added to the side navigation bar
             for (let x = 0; x < responseData.length; x++) {
+                // loop through all of the users subjects
                 let subjectLink = document.createElement('a');
+                // element to add link for each subject
                 subjectLink.setAttribute("href", "/client/subject.html?id=" + responseData[x].id + "_name&" + responseData[x].name);
                 subjectLink.innerHTML = responseData[x].name;
+                // url and name added to the properties of the element
                 sideNav.appendChild(subjectLink);
+                // element added to the side navigation bar
                 subjectInfo.push(responseData[x].id, responseData[x].name);
+                // add the id of the subject and the name to the subject info array
             }
             let createLink = document.createElement('a');
+            // element to add link to create a subject
             createLink.setAttribute("href", "/client/student.html?addSubject");
             createLink.innerHTML = "Create Subject...";
+            // url and name added to the properties of the element
             sideNav.appendChild(createLink);
+            // element added to the side navigation bar
             listClasses();
+            // calls function to add the subjects
         }
     });
 }
@@ -49,40 +74,57 @@ function listClasses() {
     let formData = new FormData;
     formData.append('token', document.cookie);
     formData.append('userType', "student");
+    // token and userType are needed for the fetch statement
     fetch("/class/listSpecific", {method: 'post', body: formData}
+    // list all of the classes of the student
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {
             alert(responseData.error);
+            // if the response data has an error property, print it
         } else {
             let sideNav = document.getElementById("mySideNav");
+            // actual side bar element
             for (let x = 0; x < responseData.length; x++) {
-                let subjectLink = document.createElement('a');
-                subjectLink.setAttribute("href", "/client/class.html?id=" + responseData[x].id + "_name&" + responseData[x].name);
-                subjectLink.innerHTML = responseData[x].name;
-                sideNav.appendChild(subjectLink);
+                // loop through all of the user's classes
+                let classLink = document.createElement('a');
+                // element to add class links to the side bar
+                classLink.setAttribute("href", "/client/class.html?id=" + responseData[x].id + "_name&" + responseData[x].name);
+                classLink.innerHTML = responseData[x].name;
+                // url and name of the class added to the element properties
+                sideNav.appendChild(classLink);
+                // element added to the side bar
             }
         }
     });
 }
 
 function getUsername() {
+    // function to get the name of the user logged in
     let formData = new FormData;
     formData.append('token', document.cookie);
+    // appends the token needed to identify the user
     fetch("/student/select", {method: 'post', body: formData}
+    // gets the student information
     ).then(response => response.json()
     ).then(responseData => {
         if (responseData.hasOwnProperty('error')) {
             alert(responseData.error);
+            // if the response data has an error property, print it
         } else {
             let fullName = responseData[0].name;
             let name = "";
+            // declare the full name to store the whole user's name
             if (fullName.indexOf(" ") === -1) {
+                // if the full name doesn't have a space character, only their first name must have been entered
                 name = fullName;
+                // set name to be fullname as no surname is recorded
             } else {
                 name = fullName.substring(0, fullName.indexOf(" "));
+                // if there is a second name, only take the characters before the space to get only the first name
             }
             document.getElementById("welcome").innerHTML = "Welcome " + name + "!";
+            // set the welcome title to include the user's name
         }
     });
 }
@@ -256,16 +298,16 @@ function leaderboard() {
                 '<th>Score</th>' +
                 '</tr>';
 
-                for (let x = 0; x < array.length; x++) {
-                    let student = array[x];
-                    studentsHTML += `<tr contenteditable="false">` +
-                        `<td>${x+1}</td>` +
-                        `<td>${student.name}</td>` +
-                        `<td>${student.score}</td>` +
-                        `</tr>`;
-                }
+            for (let x = 0; x < array.length; x++) {
+                let student = array[x];
+                studentsHTML += `<tr contenteditable="false">` +
+                    `<td>${x+1}</td>` +
+                    `<td>${student.name}</td>` +
+                    `<td>${student.score}</td>` +
+                    `</tr>`;
+            }
             studentsHTML += '</table>';
-                document.getElementById("leaderboard").innerHTML = studentsHTML;
+            document.getElementById("leaderboard").innerHTML = studentsHTML;
         }
     });
 }
