@@ -10,7 +10,8 @@ function pageLoadStudent() {
     listSubjects();
     // lists the subjects for the side navigation bar
     document.getElementById("logoutButton").addEventListener("click", logout);
-    // set the logout event listener
+    document.getElementById("deleteButton").addEventListener("click", deleteStudent);
+    // set the logout and delete event listeners
     tableValues();
     // gets the line graph values
     leaderboard();
@@ -310,4 +311,22 @@ function leaderboard() {
             document.getElementById("leaderboard").innerHTML = studentsHTML;
         }
     });
+}
+
+function deleteStudent() {
+    let areYouSure;
+    areYouSure = confirm("Are you sure? This is irreversible");
+    if (areYouSure) {
+        let formData = new FormData;
+        formData.append("token", document.cookie);
+        fetch("/student/delete", {method: 'post', body: formData}
+        ).then(response => response.json()
+        ).then(responseData => {
+            if (responseData.hasOwnProperty('error')) {
+                alert(responseData.error);
+            } else {
+                window.location.href = "/client/index.html";
+            }
+        });
+    }
 }

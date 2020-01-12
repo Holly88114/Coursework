@@ -36,7 +36,7 @@ public class Classes {
         }
     }
 
-    @GET
+    /*@GET
     @Path("listAll")
     @Produces(MediaType.APPLICATION_JSON)
     public String listClasses() {
@@ -57,9 +57,9 @@ public class Classes {
             System.out.println("Database error: " + exception.getMessage());
             return "{\"error\": \"Unable to list items, please see server console for more info.\"}";
         }
-    }
+    }*/
 
-    @POST
+    @GET
     @Path("listSpecific")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
@@ -173,3 +173,8 @@ public class Classes {
         }
     }
 }
+
+
+    
+
+

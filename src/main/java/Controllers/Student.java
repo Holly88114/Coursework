@@ -174,15 +174,17 @@ public class Student {
     @Path("delete")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public String deleteThing(@FormDataParam("email") String email) {
+    public String deleteThing(@FormDataParam("token") String token) {
         try {
-            if (email == null) {
-                // checks the email is present
+            if (token == null) {
+                // checks the token is present
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
-            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Students WHERE Email = ?");
-            ps.setString(1, email);
+            System.out.println("student/delete token=" + token);
+            PreparedStatement ps = Main.db.prepareStatement("DELETE FROM Students WHERE StudentID = (SELECT StudentID FROM Students WHERE Token = ?)");
+            ps.setString(1, token);
             ps.execute();
+
             return "{\"status\": \"OK\"}";
             // no errors returns the OK
         } catch (Exception exception) {
@@ -318,4 +320,6 @@ public class Student {
     }
 
 }
+
+
 

@@ -40,7 +40,7 @@ function pageLoadFlash() {
                 count++;
                 // increments the count of the number of cards seen
                 if (count % 10 === 0) {
-                    // checks if the count is a multitple of 10
+                    // checks if the count is a multiple of 10
                     document.getElementById("qaTitle").innerHTML = count + " Questions Answered" + '<br>' + "Click Next to Continue";
                     document.getElementById("card").innerHTML = "";
                     // shows the user how many cards they have seen
@@ -48,12 +48,12 @@ function pageLoadFlash() {
                     // shows the user the next question
                     let ln = questions.length;
                     // assign ln as the length of the question data
-                    lastIndex = index;
-                    // sets the last index to the current index before the current index is changed
                     do {
                         index = Math.floor(Math.random() * ln);
                     } while (index === lastIndex);
                     // loops until the next question will be different from the last question
+                    lastIndex = index;
+                    // sets the last index to the current index before the current index is changed
                     showQuestion();
                     // shows the question
                 }
