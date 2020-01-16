@@ -152,7 +152,7 @@ public class Subject {
     @Produces(MediaType.APPLICATION_JSON)
     public String deleteSubject(@FormDataParam("id") Integer id) {
         try {
-            if (id == null) {
+            if (id == null || id < 0) {
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
             System.out.println("subject/delete id=" + id);

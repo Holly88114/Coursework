@@ -180,9 +180,6 @@ function addToScore(correct) {
             });
         }
     });
-
-
-
 }
 
 function home() {

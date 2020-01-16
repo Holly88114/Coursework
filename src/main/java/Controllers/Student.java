@@ -176,7 +176,7 @@ public class Student {
     @Produces(MediaType.APPLICATION_JSON)
     public String deleteThing(@FormDataParam("token") String token) {
         try {
-            if (token == null) {
+            if (token.equals("")) {
                 // checks the token is present
                 throw new Exception("One or more form data parameters are missing in the HTTP request.");
             }
@@ -320,6 +320,3 @@ public class Student {
     }
 
 }
-
-
-

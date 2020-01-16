@@ -1,19 +1,18 @@
 function pageLoad() {
     getClasses();
     getUsername();
+    document.getElementById("delButton").addEventListener("click", deleteTeacher);
     if (window.location.search === "?addClass") {
         addNewClass();
-    } else {
-        //getTableData();
     }
 }
-
 
 function getClasses() {
     let classInfo = [];
     let formData = new FormData;
+
     formData.append('token', document.cookie);
-    formData.append('userType', "teacher");
+    formData.append('userType', String("teacher"));
     fetch("/class/listSpecific", {method: 'post', body: formData}
     ).then(response => response.json()
     ).then(responseData => {
@@ -101,8 +100,7 @@ function submitAddClass() {
             document.getElementById("submit").removeEventListener("click", submitAddClass);
             document.getElementById("confirmation").innerHTML =
                 `<div class="smallBody"><h3>Class Successfully Added</h3><br><button type="button" class="bigButton" id="OKbutton">Ok</button><br><br></div>`;
-            document.getElementById("OKbutton").addEventListener("click", ok)
-
+            document.getElementById("OKbutton").addEventListener("click", ok);
         }
     });
 }
@@ -172,6 +170,25 @@ function loadTable(classInfo, fullClassInfo) {
     myChart.update();
 
 }
+
+function deleteTeacher() {
+    let areYouSure;
+    areYouSure = confirm("Are you sure? This is irreversible");
+    if (areYouSure) {
+        let formData = new FormData;
+        formData.append("token", document.cookie);
+        fetch("/teacher/delete", {method: 'post', body: formData}
+        ).then(response => response.json()
+        ).then(responseData => {
+            if (responseData.hasOwnProperty('error')) {
+                alert(responseData.error);
+            } else {
+                window.location.href = "/client/index.html";
+            }
+        });
+    }
+}
+
 
 function openNav() {
     document.getElementById("mySideNav").style.width = "250px";

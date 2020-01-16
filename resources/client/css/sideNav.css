@@ -14,7 +14,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #a1a1a1;
     display: block;
     transition: 0.3s;
 }
@@ -23,7 +23,7 @@ span {
     cursor:pointer;
 }
 .sideNav a:hover {
-    color: #f1f1f1;
+    color: rgba(247,247,247,0);
 }
 .sideNav .closebtn {
     position: absolute;

@@ -227,7 +227,6 @@ function table(scoreArray, responseData) {
 
             if (subjectInfo[y] == responseData[x].subjectID) {
                 name = subjectInfo[y+1];
-
             }
         }
         let newDataset = {label: name,
@@ -256,7 +255,6 @@ function tableValues() {
             let scoreArray = [];
 
             for (let x = 0; x < scoreData.length; x++) {
-                console.log(scoreData[x].scores);
                 let num1 = (scoreData[x].scores).substring(1, 3);
                 let num2 = (scoreData[x].scores).substring(3, 5);
                 let num3 = (scoreData[x].scores).substring(5, 7);

@@ -36,7 +36,7 @@ public class Classes {
         }
     }
 
-    /*@GET
+      /*@GET
     @Path("listAll")
     @Produces(MediaType.APPLICATION_JSON)
     public String listClasses() {
@@ -59,7 +59,7 @@ public class Classes {
         }
     }*/
 
-    @GET
+    @POST
     @Path("listSpecific")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
