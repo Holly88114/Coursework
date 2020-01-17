@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Can't think of anything else needing to be done, class are pretty useless though">
+    <list default="true" id="8a48c016-f4ed-44e9-8be1-75c684ac3bc7" name="Default" comment="Phase 3 logout">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/Database.db" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/class.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/class.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/client/css/bodyStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/bodyStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/css/buttonStyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/buttonStyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/css/sideNav.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/css/sideNav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/flashcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/flashcard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/js/student.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/student.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/js/teacher.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/teacher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/js/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/js/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/quiz.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/quiz.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/teacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/teacher.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/client/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Classes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controllers/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/classes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/classes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/student.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Controllers/subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controllers/subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/client/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +107,18 @@
       <recent name="U:\Computer Science\Coursework\.idea" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Main" />
@@ -191,15 +189,13 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
     </option>
   </component>
   <component name="SvnConfiguration">
